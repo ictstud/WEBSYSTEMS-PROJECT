@@ -14,19 +14,6 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- A website for the registrar/administration where signing in links all pre-existing files related to them -->
-     
-    <!-- TO ADD: -->
-    <!-- Add an admin with special features (to edit and delete) -->
-    <!-- Add an ABout Us Section -->
-    <!-- Only show the form whhen they press  the button to add a file -->
-    <!-- Add a search function -->
-    <!-- // TODO: set up local storage -->
-    <!-- // TODO: fix php thingymaajig -->
-
-    <!-- CSS TODO -->
-    <!-- Home page will contain header bar - options are to add a file or search a file -->
-     
      <header>
         <h1>Welcome to the Digital Archives</h1>
         <h2>What would you like to do?</h2>
@@ -74,27 +61,11 @@
                 foreach($users as $user):   
             ?>
             <tr>
-                <td><?=htmlspecialchars($user['ID'])?></td>
-                <td><?=htmlspecialchars($user['last_name'])?></td>
-                <td><?=htmlspecialchars($user['first_name'])?></td>
-                <td><?=htmlspecialchars($user['file_name'])?></td>
-                <td><?=htmlspecialchars($user['date_issued'])?></td>
-                <td>
-
-                    <!--update-->
-                    <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
-                        <input type="hidden" name="method_finder" value="edit">
-                        <input type="hidden" name="ID" value="<?= htmlspecialchars($user['ID'])?>">
-                    <button type="submit">EDIT</button>
-                    </form>
-
-                    <!--delete-->
-                    <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
-                        <input type="hidden" name="method_finder" value="delete">
-                        <input type="hidden" name="ID" value="<?= htmlspecialchars($user['ID'])?>">
-                        <button type="submit">DELETE</button>
-                    </form>
-                </td>
+              <td><?=htmlspecialchars($user['ID'])?></td>
+              <td><?=htmlspecialchars($user['last_name'])?></td>
+              <td><?=htmlspecialchars($user['first_name'])?></td>
+              <td><?=htmlspecialchars($user['file_name'])?></td>
+              <td><?=htmlspecialchars($user['date_issued'])?></td>
             </tr>
             <?php
             endforeach;
