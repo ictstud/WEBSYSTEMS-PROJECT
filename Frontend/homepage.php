@@ -27,6 +27,7 @@
     <!-- CSS TODO -->
     <!-- Home page will contain header bar - options are to add a file or search a file -->
      
+    <!-- TESTING???? -->
      <header>
         <h1>Welcome to the Digital Archives</h1>
         <h2>What would you like to do?</h2>
