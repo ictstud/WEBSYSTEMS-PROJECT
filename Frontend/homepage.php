@@ -88,7 +88,7 @@
             </tr>
             
         </thead>
-        <tbody>
+        <tbody id="files-table">
             <?php
                 $controller = new Controller();
                 $users = $controller->readall();
@@ -96,7 +96,7 @@
                 foreach($users as $user):   
             ?>
             <tr>
-                <td><?=htmlspecialchars($user['ID'])?></td>
+                <td id="identifier"><?=htmlspecialchars($user['ID'])?></td>
                 <td><?=htmlspecialchars($user['last_name'])?></td>
                 <td><?=htmlspecialchars($user['first_name'])?></td>
                 <td><?=htmlspecialchars($user['file_name'])?></td>

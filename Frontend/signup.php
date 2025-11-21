@@ -8,7 +8,7 @@
 <body>
     <h1>Sign Up</h1>
 
-    <form action="homepage.php">
+    <form id="signupForm" novalidate>
         <label for="username">Username:</label>
         <input type="text" name="username" id="username">
 
@@ -20,40 +20,12 @@
 
         <input type="submit" value="Sign Up" id="signUpBtn">
 
+        <article id="signupErrors" style="color:darkred;margin-top:8px"></article>
+
         <h4>Don't have an account?</h4>
         <a href="login.php">Log In</a>
     </form>
     
     <script src="Users/users.js"></script>
-    <script>
-        const signUpBtn = document.querySelector('#signUpBtn');
-        const email = document.querySelector('#email');
-        
-        signUpBtn.addEventListener('click', (e) => {
-            // loop through every user to see if username already exists
-            for(user of users) {
-                // compare if current user natches one of the users already in the database
-                if (user.username == username.value) {
-                    alert("This username exists already!");
-                    // prevents form from submitting data
-                    e.preventDefault();
-                    break;
-                } else {
-                    continue;
-                }
-            }
-
-            // Adds user to users database
-            users.push({username: username.value,
-            email: email.value,
-            password: password.value,
-            isAdmin: false,
-            currentAccount: true
-            });
-
-            
-        });
-
-    </script>
 </body>
 </html>
