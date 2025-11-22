@@ -1,14 +1,18 @@
-/* MAIN STYLING / OVERALL */
+/* -------------- MAIN STYLING / OVERALL ------------------- */
 body {
     font-family: "raleway", sans-serif;   
     text-align: center; 
     margin: 0;
-    /* background-image: ; */
+    background-image: url('bg-img.png');
+    background-color: rgba(205, 224, 206, 0.8); 
+    background-blend-mode: overlay;
+    color: #38491b;
 }
 
+/* NAVIGATION BAR STYLING */
 nav {
     background-color: #fada54;
-    padding: 10px;
+    padding: 3px;
 }
 
 nav ul {
@@ -23,14 +27,106 @@ nav ul li a{
     display: inline-block; 
     color: #38491b;
     text-decoration: none;
-    margin: 0 10px;
+    padding: 10px 15px;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* STYLING FOR ABOUT PAGE */
+/* SEARCH BAR STYLING 
+nav .searchBar input[type="text"] {
+    margin: 0 0 0 700px;
+    padding: 10px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* BUTTONS STYLING - for nav bar
+nav .searchBar button{
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+nav .searchBar button:hover {
+    background-color: #e0c44a;
+} */
+/*-------------------------- STYLING FOR HOME PAGE ---------------------- */
+.container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header .btn {
+  background-color: #fada54;
+  color: #38491b;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  
+}   
+
+header .btn:hover {
+  background-color: #e2bf33;
+}
+
+.submit-file {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+/* -----------------------testing */
+/* Form layout */
+.submit-file form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Label */
+.submit-file label {
+  font-weight: bold;
+}
+
+/* Inputs */
+.submit-file input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Submit button below form*/
+.submit-file .btn {
+  background-color: #fada54;
+  color: #38491b;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.submit-file .btn:hover {
+  background-color: #e2bf33;
+}
+
+/*-------------------------- STYLING FOR ABOUT PAGE ---------------------- */
 #eva, #kath, #fely, #dancel {
     width: 250px;
     margin: 10px;
@@ -52,7 +148,6 @@ nav ul li a:hover {
     align-items: center;
 } 
 
-/* Wrapper for the team grid */
 #team-members {
     display: flex;
     flex-wrap: wrap;

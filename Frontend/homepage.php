@@ -20,7 +20,6 @@
      
     <!-- TO ADD: -->
     <!-- Add an admin with special features (to edit and delete) -->
-    <!-- Add an ABout Us Section -->
     <!-- Only show the form whhen they press  the button to add a file -->
     <!-- Add a search function -->
     <!-- // TODO: set up local storage -->
@@ -33,36 +32,42 @@
         <ul>
             <li><a href="homepage.php">Home</a></li>
             <li><a href="about_us.html">About</a></li>
+            <!-- <li class="searchBar">
+                <form action="search_results.php" method="get" style="display: inline;">
+                    <input type="text" name="query" placeholder="Search files..." required>
+                    <button type="submit">Search</button>
+                </form>
+            </li> -->
         </ul>
     </nav>
-
+<div class="container">
      <header>
-        <h1>Welcome to the Digital Archives</h1>
+        <h1>WELCOME TO THE DIGITAL ARCHIVES</h1>
         <h2>What would you like to do?</h2>
 
-        <button>Submit a file</button>
-        <button>Search a file</button>
+        <button class="btn">Submit a file</button>
+        <button class="btn">Search a file</button>
      </header>
 
      <section class="submit-file">
-        <form action="../BackEnd/Controller.php?method_finder=create"  method="post">
         <fieldset>
-            <label for="last_name">Last Name: </label>
-            <input type="text" name="last_name" id="lastName">
+        <form action="../BackEnd/Controller.php?method_finder=create"  method="post">
+            <label for="last_name">Last Name: </label> 
+            <input type="text" name="last_name" id="lastName"> 
     
-            <label for="first_name">First Name: </label>
-            <input type="text" name="first_name" id="firstName">
+            <label for="first_name">First Name: </label> 
+            <input type="text" name="first_name" id="firstName"> 
     
-            <label for="file_name">File Name: </label>
-            <input type="text" name="file_name" id="fileName">
+            <label for="file_name">File Name: </label> 
+            <input type="text" name="file_name" id="fileName"> 
 
-            <label for="date_issued">Date Issued: </label>
-            <input type="text" name="date_issued" id="fileName">
+            <label for="date_issued">Date Issued: </label> 
+            <input type="text" name="date_issued" id="fileName"> 
+        <input class="btn" type="submit" value="Submit" name="submit_button">
+        </form>
         </fieldset>
-
-        <input type="submit" value="submit" name="submit_button">
-    </form>
-     </section>
+    </section>
+</div>
 
     <table>
         <thead>
