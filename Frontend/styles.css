@@ -1,0 +1,62 @@
+/* MAIN STYLING / OVERALL */
+body {
+    font-family: "raleway", sans-serif;   
+    text-align: center; 
+    margin: 0;
+    /* background-image: ; */
+}
+
+nav {
+    background-color: #fada54;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+}
+
+nav ul li a{
+    display: inline-block; 
+    color: #38491b;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* STYLING FOR ABOUT PAGE */
+#eva, #kath, #fely, #dancel {
+    width: 250px;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#eva img, #kath img, #fely img, #dancel img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+/* Container for team member layout */
+#team-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+/* Wrapper for the team grid */
+#team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 700px;
+}
+

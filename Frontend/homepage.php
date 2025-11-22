@@ -11,6 +11,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="about_us.html">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
@@ -27,6 +29,13 @@
     <!-- CSS TODO -->
     <!-- Home page will contain header bar - options are to add a file or search a file -->
      
+     <nav>
+        <ul>
+            <li><a href="homepage.php">Home</a></li>
+            <li><a href="about_us.html">About</a></li>
+        </ul>
+    </nav>
+
      <header>
         <h1>Welcome to the Digital Archives</h1>
         <h2>What would you like to do?</h2>
