@@ -12,7 +12,7 @@ body {
 /* NAVIGATION BAR STYLING */
 nav {
     background-color: #fada54;
-    padding: 3px;
+    padding: 2px;
 }
 
 nav ul {
@@ -23,7 +23,7 @@ nav ul {
     gap: 10px;
 }
 
-nav ul li a{
+nav ul li a {
     display: inline-block; 
     color: #38491b;
     text-decoration: none;
@@ -31,21 +31,24 @@ nav ul li a{
     font-weight: bold;
 }
 
+nav p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #38491b;
+}
+
 nav ul li a:hover {
     text-decoration: underline;
 }
-
-/* SEARCH BAR STYLING 
-nav .searchBar input[type="text"] {
+ /* SEARCH BAR STYLING */
+ .searchBar input[type="text"] {
     margin: 0 0 0 700px;
     padding: 10px;
     outline: none;
     border-radius: 5px;
     font-size: 16px;
 }
-
-/* BUTTONS STYLING - for nav bar
-nav .searchBar button{
+ .searchBar button{
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -53,9 +56,9 @@ nav .searchBar button{
     font-size: 16px;
 }
 
-nav .searchBar button:hover {
+ .searchBar button:hover {
     background-color: #e0c44a;
-} */
+} 
 /*-------------------------- STYLING FOR HOME PAGE ---------------------- */
 .container {
     max-width: 90%;
