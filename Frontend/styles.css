@@ -7,58 +7,89 @@ body {
     background-color: rgba(205, 224, 206, 0.8); 
     background-blend-mode: overlay;
     color: #38491b;
+    /* #fada54; */
 }
 
 /* NAVIGATION BAR STYLING */
-nav {
-    background-color: #fada54;
-    padding: 2px;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+  padding: 8px 20px;
+  height: 50px;
+  background-color: #fada54;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: right;
-    gap: 10px;
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* spacing between logo and title */
 }
 
-nav ul li a {
-    display: inline-block; 
-    color: #38491b;
-    text-decoration: none;
-    padding: 10px 15px;
-    font-weight: bold;
+.logo {
+  height: 50px;
 }
 
-nav p {
-    font-size: 24px;
-    font-weight: bold;
-    color: #38491b;
+.site-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #38491b;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  font-weight: bold;
 }
+
+.navbar-right a {
+  text-decoration: none;
+  color: #38491b;
+  font-size: 18px;
+}
+
+.navbar-right a:hover {
+  text-decoration: underline;
+  /* transition: 0.3s ease-in; */
+}
+
  /* SEARCH BAR STYLING */
+ .searchBar {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
  .searchBar input[type="text"] {
-    margin: 0 0 0 700px;
-    padding: 10px;
+    padding: 8px 12px;
+    width: 400px;
     outline: none;
     border-radius: 5px;
     font-size: 16px;
+    border: 1px solid #38491b;
 }
+
  .searchBar button{
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    background-color: #fada54;
+    color: #38491b;
+    transition: background 0.3s ease;
 }
 
- .searchBar button:hover {
-    background-color: #e0c44a;
-} 
+.searchBar button:hover {
+    background-color: #e2bf33;
+}
+
+.searchBar button:active {
+    transform: scale(0.98);
+}
+
 /*-------------------------- STYLING FOR HOME PAGE ---------------------- */
 .container {
     max-width: 90%;
@@ -73,14 +104,13 @@ header .btn {
   background-color: #fada54;
   color: #38491b;
   border: none;
-  padding: 12px;
+  padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
   transition: background 0.3s ease;
   
 }   
-
 header .btn:hover {
   background-color: #e2bf33;
 }
@@ -91,35 +121,46 @@ header .btn:hover {
     align-items: center;
     margin-top: 20px;
 }
-/* -----------------------testing */
-/* Form layout */
+/* ---------------- FORM STYLING --------------- */
+.submit-file {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 .submit-file form {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   gap: 10px;
+  max-width: 400px; 
+}
+/* ---make label and input same row */
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;   
+  margin-bottom: 10px;
 }
 
-/* Label */
-.submit-file label {
+.form-row label {
+  width: 120px; 
   font-weight: bold;
+  color: #38491b;
 }
 
-/* Inputs */
-.submit-file input[type="text"] {
+.form-row input[type="text"] {
+  flex: 1;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #38491b;
   border-radius: 5px;
   font-size: 14px;
-  width: 100%;
-  box-sizing: border-box;
 }
 
-/* Submit button below form*/
 .submit-file .btn {
   background-color: #fada54;
   color: #38491b;
   border: none;
-  padding: 12px;
+  padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
@@ -129,12 +170,64 @@ header .btn:hover {
   background-color: #e2bf33;
 }
 
+/*--------------- STYLING FOR TABLE ----------------- */
+table {
+  width: 1160px;
+  border-collapse: collapse;
+  margin: 30px;
+  border: 1.5px solid #38491b;
+}
+
+/* Header row */
+table thead th {
+  background-color: #fada54;           
+  padding: 12px;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1.5px solid #38491b;
+}
+
+/* Table rows */
+table tbody td {
+  padding: 10px;
+  background-color: #fffffc;
+}
+
+table button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* EDIT button */
+table .edit[type="submit"]{
+  background-color: #24aa3d;
+  color: white;
+}
+
+.edit button:active {
+    transform: scale(0.98);
+}
+
+/* DELETE button */
+table .delete[type="submit"] {
+  background-color: #d9534f;
+  color: white;
+}
+
+.delete button:active {
+    transform: scale(0.98);
+}
+
 /*-------------------------- STYLING FOR ABOUT PAGE ---------------------- */
 #eva, #kath, #fely, #dancel {
     width: 250px;
     margin: 10px;
     padding: 15px;
-    border: 1px solid #ddd;
+    border: 1px solid #38491b;
+    color: #38491b;
     border-radius: 8px;
 }
 

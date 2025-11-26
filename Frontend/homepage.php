@@ -4,8 +4,6 @@
     $connect = new Controller();
     $connect->connection();
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,22 +18,21 @@
      
     <!-- TO ADD: -->
     <!-- Add an admin with special features (to edit and delete) -->
-    <!-- Only show the form whhen they press  the button to add a file -->
     <!-- Add a search function -->
     <!-- // TODO: set up local storage -->
     <!-- // TODO: fix php thingymaajig -->
-
-    <!-- CSS TODO -->
-    <!-- Home page will contain header bar - options are to add a file or search a file -->
      
-     <nav>
-        <ul>
-            <li><a href="homepage.php"><img src="bsu_logo.png"  alt="BSU Logo" style="height: 60px;"></a></li>
-            <p>The Digital Archives</p>
-            <li><a href="homepage.php">Home</a></li>
-            <li><a href="about_us.html">About</a></li>
-        </ul>
-    </nav>
+<nav class="navbar">
+  <div class="navbar-left">
+    <img src="bsu_logo.png" alt="Logo" class="logo"/>
+    <span class="site-title">Digital Archives</span>
+  </div>
+  <div class="navbar-right">
+    <a href="homepage.php">Home</a>
+    <a href="about_us.html">About</a>
+  </div>
+</nav>
+
 <div class="container">
      <header>
         <h1>WELCOME TO THE DIGITAL ARCHIVES</h1>
@@ -46,27 +43,34 @@
      </header>
 
      <section class="submit-file" id="submitFile" style="display: none;">
-        <fieldset>
         <form action="../BackEnd/Controller.php?method_finder=create"  method="post">
-            <label for="last_name">Last Name: </label> 
-            <input type="text" name="last_name" id="lastName"> 
-    
-            <label for="first_name">First Name: </label> 
-            <input type="text" name="first_name" id="firstName"> 
-    
-            <label for="file_name">File Name: </label> 
-            <input type="text" name="file_name" id="fileName"> 
+            <div class="form-row">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required>
+            </div>
 
-            <label for="date_issued">Date Issued: </label> 
-            <input type="text" name="date_issued" id="fileName"> 
-        <input class="btn" type="submit" value="Submit" name="submit_button">
+            <div class="form-row">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required>
+            </div>
+
+            <div class="form-row">
+                <label for="file_name">File Name:</label>
+                <input type="text" id="file_name" name="file_name" required>
+            </div>
+
+            <div class="form-row">
+                <label for="date_issued">Date Issued:</label>
+                <input type="text" id="date_issued" name="date_issued" required>
+            </div>
+
+            <button type="submit" class="btn">Submit File</button>
         </form>
-        </fieldset>
     </section>
 
-    <section  id="searchBar" style="display: none;">
-        <form action="search_results.php" method="get" style="display: inline;">
-            <input type="text" name="query" placeholder="Search files..." required>
+    <section  id="searchBar" class="searchBar" style="display: none;">
+        <form action="search_results.php" method="get">
+            <input type="text" name="query" placeholder="Search files..." >
             <button type="submit">Search</button>
         </form>
     </section>
@@ -80,6 +84,7 @@
                 <th>First Name</th>
                 <th>File Name</th>
                 <th>Date Issued</th>
+                <th>Actions</th>
             </tr>
             
         </thead>
@@ -102,14 +107,14 @@
                     <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
                         <input type="hidden" name="method_finder" value="edit">
                         <input type="hidden" name="ID" value="<?= htmlspecialchars($user['ID'])?>">
-                    <button type="submit">EDIT</button>
+                    <button type="submit" class="edit">EDIT</button>
                     </form>
 
                     <!--delete-->
                     <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
                         <input type="hidden" name="method_finder" value="delete">
                         <input type="hidden" name="ID" value="<?= htmlspecialchars($user['ID'])?>">
-                        <button type="submit">DELETE</button>
+                        <button type="submit"  class="delete">DELETE</button>
                     </form>
                 </td>
             </tr>
