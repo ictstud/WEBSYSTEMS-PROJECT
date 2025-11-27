@@ -24,7 +24,7 @@
      
 <nav class="navbar">
   <div class="navbar-left">
-    <img src="bsu_logo.png" alt="Logo" class="logo"/>
+    <img src="Images/bsu_logo.png" alt="Logo" class="logo"/>
     <span class="site-title">Digital Archives</span>
   </div>
   <div class="navbar-right">
