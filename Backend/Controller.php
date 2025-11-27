@@ -30,7 +30,7 @@ class Controller {
             define('DB_PASS','');
         }
         if(!defined('DB_NAME')){
-            define('DB_NAME','database');
+            define('DB_NAME','test');
         }
 
         $this->connection=new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
