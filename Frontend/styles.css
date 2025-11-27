@@ -202,23 +202,22 @@ table button {
 }
 
 /* EDIT button */
-table .edit[type="submit"]{
+.edit-link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
   background-color: #24aa3d;
   color: white;
-}
-
-.edit button:active {
-    transform: scale(0.98);
-}
+} 
 
 /* DELETE button */
 table .delete[type="submit"] {
   background-color: #d9534f;
   color: white;
-}
-
-.delete button:active {
-    transform: scale(0.98);
 }
 
 /*-------------------------- STYLING FOR ABOUT PAGE ---------------------- */

@@ -3,6 +3,13 @@
 
     $connect = new Controller();
     $connect->connection();
+
+    // If visiting with editID, fetch the record to show inline update form / COPILOT
+    $editData = null;
+    if (!empty($_GET['editID'])) {
+        $editId = (int) $_GET['editID'];
+        $editData = $connect->update_take_data($editId);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,21 +18,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="about_us.html">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>FileStacker | A Digital Archive</title>
 </head>
 <body>
     <!-- A website for the registrar/administration where signing in links all pre-existing files related to them -->
      
     <!-- TO ADD: -->
     <!-- Add an admin with special features (to edit and delete) -->
-    <!-- Add a search function -->
-    <!-- // TODO: set up local storage -->
-    <!-- // TODO: fix php thingymaajig -->
+    <!-- Make search bar functionable -->
+    <!-- TODO: set up local storage -->
      
 <nav class="navbar">
   <div class="navbar-left">
     <img src="bsu_logo.png" alt="Logo" class="logo"/>
-    <span class="site-title">Digital Archives</span>
+    <span class="site-title">FileStacker | A Digital Archive</span>
   </div>
   <div class="navbar-right">
     <a href="homepage.php">Home</a>
@@ -35,7 +41,8 @@
 
 <div class="container">
      <header>
-        <h1>WELCOME TO THE DIGITAL ARCHIVES</h1>
+        <h1>Welcome to FileStacker!</h1>
+        <hr>
         <h2>What would you like to do?</h2>
 
         <button class="btn" id="showForm">Submit a file</button>
@@ -74,6 +81,41 @@
             <button type="submit">Search</button>
         </form>
     </section>
+    
+    <!-- Inline update form (server-side include when ?editID=) COPILOT -->
+    <?php if ($editData): ?>
+        <section id="inlineUpdate" class="submit-file" style="display: block; margin-top: 10px;">
+            <h2>Edit File #<?= htmlspecialchars($editData['ID']) ?></h2>
+            <form action="../BackEnd/Controller.php?method_finder=update" method="post">
+                <input type="hidden" name="ID" value="<?= htmlspecialchars($editData['ID']) ?>">
+                <div class="form-row">
+                    <label for="new_first_name">First Name:</label>
+                    <input type="text" id="new_first_name" name="new_first_name" value="<?= htmlspecialchars($editData['first_name']) ?>" required>
+                </div>
+                <div class="form-row">
+                    <label for="new_last_name">Last Name:</label>
+                    <input type="text" id="new_last_name" name="new_last_name" value="<?= htmlspecialchars($editData['last_name']) ?>" required>
+                </div>
+                <div class="form-row">
+                    <label for="new_file_name">File Name:</label>
+                    <input type="text" id="new_file_name" name="new_file_name" value="<?= htmlspecialchars($editData['file_name']) ?>" required>
+                </div>
+                <div class="form-row">
+                    <label for="new_date_issued">Date Issued:</label>
+                    <input type="text" id="new_date_issued" name="new_date_issued" value="<?= htmlspecialchars($editData['date_issued']) ?>" required>
+                </div>
+                <button type="submit" class="btn">Save Changes</button>
+                <a href="homepage.php" class="btn" style="margin-left:10px; text-decoration: none;">Cancel</a>
+            </form>
+        </section>
+        <script>
+            // scroll to inline update form after reload
+            document.addEventListener('DOMContentLoaded', function(){
+                var el = document.getElementById('inlineUpdate');
+                if (el) el.scrollIntoView({behavior:'smooth', block:'center'});
+            });
+        </script>
+    <?php endif; ?>
 </div>
 
     <table>
@@ -102,13 +144,8 @@
                 <td><?=htmlspecialchars($user['file_name'])?></td>
                 <td><?=htmlspecialchars($user['date_issued'])?></td>
                 <td>
-
-                    <!--update-->
-                    <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
-                        <input type="hidden" name="method_finder" value="edit">
-                        <input type="hidden" name="ID" value="<?= htmlspecialchars($user['ID'])?>">
-                    <button type="submit" class="edit">EDIT</button>
-                    </form>
+                    <!--update (server-side inline edit) COPILOT-->
+                    <a href="homepage.php?editID=<?= htmlspecialchars($user['ID'])?>" class="edit-link" style="text-decoration: none;">EDIT</a>
 
                     <!--delete-->
                     <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
@@ -125,12 +162,6 @@
     </table>
 
     <script src="users.js"></script>
-    <script>
-        const firstName;
-        const lastName;
-        const fileName;
-        const dateIssued;
-    </script>
 </body>
 <script>
     // Javascript to show and hide the form
