@@ -30,10 +30,14 @@ function json_response($arr){
 }
 
 // helper: check if a value exists for a column in users_table
+// The parameters are, in order, the database connection, the name of the column, and the value itself that will be checked
 function value_exists($mysqli, $column, $value){
+    // list of columns we are checking (excluding password for security reasons)
     $allowed = ['username','email','id'];
+    // makes sure that the column we are checking is allowed (a.k.a. not the password); return false if it's not allowed
     if(!in_array($column, $allowed)) return false;
 
+    // Select ID of the row relative to the column given as argument
     $sql = "SELECT id FROM users_table WHERE {$column} = ? LIMIT 1";
     $stmt = $mysqli->prepare($sql);
 
@@ -42,19 +46,25 @@ function value_exists($mysqli, $column, $value){
     $stmt->bind_param('s', $value);
     $stmt->execute();
     $stmt->store_result();
+
+    // check to see if any rows exist; if none, pass in false
     $exists = $stmt->num_rows > 0;
     $stmt->close();
 
     return $exists;
 }
 
+// Just check if email or username already exists in the database
 if($action === 'check'){
+    // error handling in case of empty user inputs (set username and email to an empty string if so)
     $username = isset($input['username']) ? trim($input['username']) : '';
     $email = isset($input['email']) ? trim($input['email']) : '';
 
+    // Actually compare if username or email exists; if it is empty, return false
     $username_exists = ($username !== '') ? value_exists($mysqli, 'username', $username) : false;
     $email_exists = ($email !== '') ? value_exists($mysqli, 'email', $email) : false;
 
+    // sends a JSON object response with the results
     json_response([
         'ok' => true,
         'username_exists' => $username_exists,
@@ -62,17 +72,20 @@ if($action === 'check'){
     ]);
 }
 
+// create a user account and add into database
 if($action === 'create'){
+    // get user inputs and set to empty if it is empty
     $username = isset($input['username']) ? trim($input['username']) : '';
     $email = isset($input['email']) ? trim($input['email']) : '';
     $password = isset($input['password']) ? $input['password'] : '';
 
-    // Error handling
+    // Setting validation for input fields and adding them to an array of errors
     $errors = [];
     if(strlen($username) < 3) $errors[] = 'Username too short';
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Invalid email';
     if(strlen($password) < 6) $errors[] = 'Password too short';
 
+    // If there are errors, return them as a JSON response with the array of errors
     if(!empty($errors)){
         json_response(['ok'=>false, 'error'=>'validation', 'messages'=>$errors]);
     }
