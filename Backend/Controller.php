@@ -36,7 +36,7 @@ class Controller {
         $this->connection=new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
         if($this->connection->connect_error){
-            die("connection faiiled:".$this->connection->connect_error);
+            die("connection failed:".$this->connection->connect_error);
         }
         echo"<script>console.log('There was a connection');</script>";
         return $this->connection;
@@ -75,7 +75,7 @@ class Controller {
             $stmt = $this->connection->prepare($sql);
 
             if($stmt){
-                $stmt->bind_param("ssiss", $first_name, $last_name, $id, $file_name, $date_issued);
+                $stmt->bind_param("ssssi", $first_name, $last_name, $file_name, $date_issued, $id);
 
                 if($stmt->execute()){
                     $location="../Frontend/homepage.php";
