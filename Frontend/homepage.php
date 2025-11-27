@@ -64,6 +64,11 @@
                 <input type="text" id="date_issued" name="date_issued" required>
             </div>
 
+            <div class="form-row">
+                <label for="file">File:</label>
+                <input type="file" name="file" id="file">
+            </div>
+
             <button type="submit" class="btn">Submit File</button>
         </form>
     </section>
@@ -116,6 +121,8 @@
                         <input type="hidden" name="ID" value="<?= htmlspecialchars($user['ID'])?>">
                         <button type="submit"  class="delete">DELETE</button>
                     </form>
+
+                    <button class="see-file-btn">Open File</button>
                 </td>
             </tr>
             <?php
@@ -124,37 +131,31 @@
         </tbody>
     </table>
 
-    <script src="users.js"></script>
+    <script src="Users/filesData.js"></script>
     <script>
-        const firstName;
-        const lastName;
-        const fileName;
-        const dateIssued;
+        // Javascript to show and hide the form
+            const showForm = document.getElementById("showForm");
+            const submitFile = document.getElementById("submitFile");
+    
+            showForm.addEventListener("click", () => {
+                if (submitFile.style.display === "none") {
+                    submitFile.style.display = "block";
+                } else {
+                    submitFile.style.display = "none";
+                }
+            });
+    
+        // Javascript to show and hide the search Bar
+            const showSearch = document.getElementById("showSearch");
+            const searchBar = document.getElementById("searchBar");
+    
+            showSearch.addEventListener("click", () => {
+                if (searchBar.style.display === "none") {
+                    searchBar.style.display = "block";
+                } else {
+                    searchBar.style.display = "none";
+                }
+            });
     </script>
 </body>
-<script>
-    // Javascript to show and hide the form
-        const showForm = document.getElementById("showForm");
-        const submitFile = document.getElementById("submitFile");
-
-        showForm.addEventListener("click", () => {
-            if (submitFile.style.display === "none") {
-                submitFile.style.display = "block";
-            } else {
-                submitFile.style.display = "none";
-            }
-        });
-
-    // Javascript to show and hide the search Bar
-        const showSearch = document.getElementById("showSearch");
-        const searchBar = document.getElementById("searchBar");
-
-        showSearch.addEventListener("click", () => {
-            if (searchBar.style.display === "none") {
-                searchBar.style.display = "block";
-            } else {
-                searchBar.style.display = "none";
-            }
-        });
-</script>
 </html>

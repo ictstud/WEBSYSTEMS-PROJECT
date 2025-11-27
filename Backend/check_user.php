@@ -2,23 +2,28 @@
 header('Content-Type: application/json');
 
 // Connection logic
+// Just a fail safe in case these constants aren't defined yet
 if(!defined('DB_HOST')) define('DB_HOST','localhost');
 if(!defined('DB_USER')) define('DB_USER','root');
 if(!defined('DB_PASS')) define('DB_PASS','');
 if(!defined('DB_NAME')) define('DB_NAME','test');
 
+// Connect to MysQL database and handle any connection error
 $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if($mysqli->connect_error){
     echo json_encode(['ok'=>false, 'error'=>'Connection failed']);
     exit;
 }
 
+// Reads raw JSON data from request body 
 $input = json_decode(file_get_contents('php://input'), true);
+// Get from $_POST if there is no JSON input
 if(!$input) $input = $_POST;
 
+// Holds what actions to perform. If it is empty (no action input yet) the default value is check
 $action = isset($input['action']) ? $input['action'] : 'check';
 
-// helper: send json and exit
+// helper: send json and exit (this is to maintain consistentcy in the response structures)
 function json_response($arr){
     echo json_encode($arr);
     exit;
