@@ -3,7 +3,7 @@ body {
     font-family: "raleway", sans-serif;   
     text-align: center; 
     margin: 0;
-    background-image: url('bg-img.png');
+    background-image: url('Images/bg-img.png');
     background-color: rgba(205, 224, 206, 0.8); 
     background-blend-mode: overlay;
     color: #38491b;
