@@ -1,15 +1,8 @@
 <?php 
     include "../BackEnd/Controller.php";
 
-    $connect = new Controller();
-    $connect->connection();
-
-    // If visiting with editID, fetch the record to show inline update form / COPILOT
-    // $editData = null;
-    // if (!empty($_GET['editID'])) {
-    //     $editId = (int) $_GET['editID'];
-    //     $editData = $connect->update_take_data($editId);
-    // }
+    // $connect = new Controller();
+    // $connect->connection(); - gpt said to remove this since were already connected to the constructor
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,11 +37,11 @@
         <h1>Welcome to FileStacker!</h1>
         <hr>
         <h2>What would you like to do?</h2>
-
         <button class="btn" id="showForm">Submit a file</button>
         <button class="btn" id="showSearch">Search a file</button>
      </header>
 
+     <!-- Form -->
      <section class="submit-file" id="submitFile" style="display: none;">
         <form action="../BackEnd/Controller.php?method_finder=create"  method="post">
             <div class="form-row">
@@ -75,6 +68,7 @@
         </form>
     </section>
 
+    <!-- Search Bar -->
     <section  id="searchBar" class="searchBar" style="display: none;">
         <form action="search_results.php" method="get">
             <input type="text" name="query" placeholder="Search files..." >
@@ -82,40 +76,6 @@
         </form>
     </section>
     
-    <!-- Inline update form (server-side include when ?editID=) COPILOT -->
-     <!-- <?php if ($editData): ?>  -->
-        <section id="inlineUpdate" class="submit-file" style="display: block; margin-top: 10px;">
-            <!-- <h2>Edit File #<?= htmlspecialchars($editData['ID']) ?></h2> -->
-            <form action="../BackEnd/Controller.php?method_finder=update" method="post">
-                <input type="hidden" name="ID" value="<?= htmlspecialchars($editData['ID']) ?>">
-                <div class="form-row">
-                    <label for="new_first_name">First Name:</label>
-                    <input type="text" id="new_first_name" name="new_first_name" required>
-                </div>
-                <div class="form-row">
-                    <label for="new_last_name">Last Name:</label>
-                    <input type="text" id="new_last_name" name="new_last_name"  required>
-                </div>
-                <div class="form-row">
-                    <label for="new_file_name">File Name:</label>
-                    <input type="text" id="new_file_name" name="new_file_name" required>
-                </div>
-                <div class="form-row">
-                    <label for="new_date_issued">Date Issued:</label>
-                    <input type="text" id="new_date_issued" name="new_date_issued" required>
-                </div>
-                <!-- <button type="submit" class="btn">Save Changes</button>
-                <a href="homepage.php" class="btn" style="margin-left:10px; text-decoration: none;">Cancel</a> -->
-            </form>
-        </section>
-        <!-- <script>
-            // scroll to inline update form after reload
-            document.addEventListener('DOMContentLoaded', function(){
-                var el = document.getElementById('inlineUpdate');
-                if (el) el.scrollIntoView({behavior:'smooth', block:'center'});
-            });
-        </script>
-    <?php endif; ?> -->
 </div>
 
     <table>

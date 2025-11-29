@@ -3,23 +3,34 @@ class Controller {
 
     private $connection;
 
+    // public function __construct(){
+    //     $this->connection = $this->connection();
+    // }
+
+    //added by chatgpt
     public function __construct(){
-        $this->connection = $this->connection();
-    }
+        $this->connection = $this->connectDB();
+    }   
+
 
     public function readall() {
         $sql = "SELECT * FROM files_table";
 
         $stmt = $this->connection->prepare($sql);
+
+        // to know what the error is - by chatgpt
+        if (!$stmt) {
+            die("Prepare failed: " . $this->connection->error);
+        }
+
         $stmt ->execute();
 
         $result = $stmt ->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-
-    public function connection(){
-        //connection logic
-
+  
+    //connection logic - 'connection' renamed to 'connectDB'
+    public function connectDB(){
         if(!defined('DB_HOST')){
             define('DB_HOST','localhost');
         }
@@ -30,16 +41,25 @@ class Controller {
             define('DB_PASS','');
         }
         if(!defined('DB_NAME')){
-            define('DB_NAME','test');
+            define('DB_NAME','database');
         }
 
-        $this->connection=new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        //old code:
+        // $this->connection=new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-        if($this->connection->connect_error){
-            die("connection failed:".$this->connection->connect_error);
+        // if($this->connection->connect_error){
+        //     die("connection failed:".$this->connection->connect_error);
+        // }
+        // echo"<script>console.log('There was a connection');</script>";
+        // return $this->connection;
+        
+        //suggested by chatgpt to fix our code daw
+        $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+        if($conn->connect_error){
+            die("Connection failed: " . $conn->connect_error);
         }
-        echo"<script>console.log('There was a connection');</script>";
-        return $this->connection;
+        return $conn;
     }
 
     //create method finder
