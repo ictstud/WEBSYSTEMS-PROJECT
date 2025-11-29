@@ -3,6 +3,14 @@
 
     // $connect = new Controller();
     // $connect->connection(); - gpt said to remove this since were already connected to the constructor
+
+    // If visiting with editID, fetch the record to show inline update form - COPILOT
+    $editData = null;
+    $controller = new Controller();
+    if (!empty($_GET['editID'])) {
+        $editId = (int) $_GET['editID'];
+        $editData = $controller->update_take_data($editId);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,6 +83,42 @@
             <button type="submit">Search</button>
         </form>
     </section>
+
+    <!-- Inline update form (server-side include when ?editID=) - COPILOT-->
+     <!-- Form that shows when you click EDIT -->
+    <?php if ($editData): ?>
+        <section id="inlineUpdate" class="submit-file" style="display: block; margin-top: 20px;">
+            <h2>Edit File #<?= htmlspecialchars($editData['ID']) ?></h2>
+            <form action="../BackEnd/Controller.php?method_finder=update" method="post">
+                <input type="hidden" name="ID" value="<?= htmlspecialchars($editData['ID']) ?>">
+                <div class="form-row">
+                    <label for="new_first_name">First Name:</label>
+                    <input type="text" id="new_first_name" name="new_first_name" value="<?= htmlspecialchars($editData['first_name']) ?>" required>
+                </div>
+                <div class="form-row">
+                    <label for="new_last_name">Last Name:</label>
+                    <input type="text" id="new_last_name" name="new_last_name" value="<?= htmlspecialchars($editData['last_name']) ?>" required>
+                </div>
+                <div class="form-row">
+                    <label for="new_file_name">File Name:</label>
+                    <input type="text" id="new_file_name" name="new_file_name" value="<?= htmlspecialchars($editData['file_name']) ?>" required>
+                </div>
+                <div class="form-row">
+                    <label for="new_date_issued">Date Issued:</label>
+                    <input type="text" id="new_date_issued" name="new_date_issued" value="<?= htmlspecialchars($editData['date_issued']) ?>" required>
+                </div>
+                <button type="submit" class="btn">Save Changes</button>
+                <a href="homepage.php" class="btn" style="text-decoration: none;">Cancel</a>
+            </form>
+        </section>
+        <script>
+            // scroll to inline update form after reload - COPILOT
+            document.addEventListener('DOMContentLoaded', function(){
+                var el = document.getElementById('inlineUpdate');
+                if (el) el.scrollIntoView({behavior:'smooth', block:'center'});
+            });
+        </script>
+    <?php endif; ?>
     
 </div>
 
@@ -104,12 +148,8 @@
                 <td><?=htmlspecialchars($user['file_name'])?></td>
                 <td><?=htmlspecialchars($user['date_issued'])?></td>
                 <td>
-                    <!-- update -->
-                    <form action="../Backend/Controller.php?" method="get" style="display: inline;">
-                        <input type="hidden" name="method_finder" value="edit">
-                        <input type="hidden" name="ID" value="<?= htmlspecialchars($user['ID'])?>">
-                        <button type="submit" class="edit">EDIT</button>
-                    </form>
+                    <!-- update (server-side inline edit) - COPILOT -->
+                    <a href="homepage.php?editID=<?= htmlspecialchars($user['ID'])?>" class="edit-link">EDIT</a>
 
                     <!--delete-->
                     <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
