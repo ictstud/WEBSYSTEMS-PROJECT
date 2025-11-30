@@ -202,15 +202,8 @@ table button {
 }
 
 /* EDIT button */
-.edit-link {
-  display: inline-block;
-  text-decoration: none;
-  padding: 6px 14px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  background-color: #24aa3d;
+button.edit[type="submit"] {
+  background-color: #47c84c;
   color: white;
 } 
 
@@ -222,8 +215,8 @@ table .delete[type="submit"] {
 
 /*-------------------------- STYLING FOR ABOUT PAGE ---------------------- */
 #eva, #kath, #fely, #dancel {
-    width: 250px;
-    margin: 10px;
+    width: 300px;
+    margin: 20px;
     padding: 15px;
     border: 1px solid #38491b;
     color: #38491b;
@@ -232,7 +225,7 @@ table .delete[type="submit"] {
 
 #eva img, #kath img, #fely img, #dancel img {
     width: 100px;
-    height: 100px;
+    height: 150px;
     border-radius: 50%;
 }
 

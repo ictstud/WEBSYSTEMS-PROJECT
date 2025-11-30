@@ -1,14 +1,15 @@
 <?php 
     include "../BackEnd/Controller.php";
 
-    $connect = new Controller();
-    $connect->connection();
+    // $connect = new Controller();
+    // $connect->connection(); - gpt said to remove this since were already connected to the constructor
 
-    // If visiting with editID, fetch the record to show inline update form / COPILOT
+    // If visiting with editID, fetch the record to show inline update form - COPILOT
     $editData = null;
+    $controller = new Controller();
     if (!empty($_GET['editID'])) {
         $editId = (int) $_GET['editID'];
-        $editData = $connect->update_take_data($editId);
+        $editData = $controller->update_take_data($editId);
     }
 ?>
 <!DOCTYPE html>
@@ -44,11 +45,11 @@
         <h1>Welcome to FileStacker!</h1>
         <hr>
         <h2>What would you like to do?</h2>
-
         <button class="btn" id="showForm">Submit a file</button>
         <button class="btn" id="showSearch">Search a file</button>
      </header>
 
+     <!-- Form -->
      <section class="submit-file" id="submitFile" style="display: none;">
         <form action="../BackEnd/Controller.php?method_finder=create"  method="post">
             <div class="form-row">
@@ -75,16 +76,18 @@
         </form>
     </section>
 
+    <!-- Search Bar -->
     <section  id="searchBar" class="searchBar" style="display: none;">
         <form action="search_results.php" method="get">
             <input type="text" name="query" placeholder="Search files..." >
             <button type="submit">Search</button>
         </form>
     </section>
-    
-    <!-- Inline update form (server-side include when ?editID=) COPILOT -->
+
+    <!-- Inline update form (server-side include when ?editID=) - COPILOT-->
+     <!-- Form that shows when you click EDIT -->
     <?php if ($editData): ?>
-        <section id="inlineUpdate" class="submit-file" style="display: block; margin-top: 10px;">
+        <section id="inlineUpdate" class="submit-file" style="display: block; margin-top: 20px;">
             <h2>Edit File #<?= htmlspecialchars($editData['ID']) ?></h2>
             <form action="../BackEnd/Controller.php?method_finder=update" method="post">
                 <input type="hidden" name="ID" value="<?= htmlspecialchars($editData['ID']) ?>">
@@ -105,17 +108,18 @@
                     <input type="text" id="new_date_issued" name="new_date_issued" value="<?= htmlspecialchars($editData['date_issued']) ?>" required>
                 </div>
                 <button type="submit" class="btn">Save Changes</button>
-                <a href="homepage.php" class="btn" style="margin-left:10px; text-decoration: none;">Cancel</a>
+                <a href="homepage.php" class="btn" style="text-decoration: none;">Cancel</a>
             </form>
         </section>
         <script>
-            // scroll to inline update form after reload
+            // scroll to inline update form after reload - COPILOT
             document.addEventListener('DOMContentLoaded', function(){
                 var el = document.getElementById('inlineUpdate');
                 if (el) el.scrollIntoView({behavior:'smooth', block:'center'});
             });
         </script>
     <?php endif; ?>
+    
 </div>
 
     <table>
@@ -144,8 +148,8 @@
                 <td><?=htmlspecialchars($user['file_name'])?></td>
                 <td><?=htmlspecialchars($user['date_issued'])?></td>
                 <td>
-                    <!--update (server-side inline edit) COPILOT-->
-                    <a href="homepage.php?editID=<?= htmlspecialchars($user['ID'])?>" class="edit-link" style="text-decoration: none;">EDIT</a>
+                    <!-- update (server-side inline edit) - COPILOT -->
+                    <a href="homepage.php?editID=<?= htmlspecialchars($user['ID'])?>" class="edit-link">EDIT</a>
 
                     <!--delete-->
                     <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
