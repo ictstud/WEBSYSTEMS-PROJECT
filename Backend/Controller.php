@@ -149,8 +149,17 @@ class Controller {
             echo "Error creating user: " . $stmt->error;
         }
     }
+
+    public function readall_sorted_by_date() {
+        $sql = "SELECT * FROM files_table ORDER BY date_issued ASC"; 
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 }
-    
+
 
 $controller = new Controller();
 $controller -> actionreader();
