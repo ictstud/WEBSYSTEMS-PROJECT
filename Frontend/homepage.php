@@ -122,6 +122,10 @@
     
 </div>
 
+    <form action="homepage.php" method="get" style="margin: 20px 0;">
+    <button type="submit" name="sort" value="date" class="btn">Sort by Date Issued</button>
+    </form>
+
     <table>
         <thead>
             <tr>
@@ -137,7 +141,13 @@
         <tbody>
             <?php
                 $controller = new Controller();
-                $users = $controller->readall();
+
+            if (isset($_GET['sort']) && $_GET['sort'] == 'date') {
+            $users = $controller->readall_sorted_by_date();
+            } 
+            else {
+            $users = $controller->readall();
+            }
 
                 foreach($users as $user):   
             ?>
