@@ -20,7 +20,7 @@
      </header>
 
      <section class="submit-file">
-        <form action="../BackEnd/Controller.php?method_finder=create"  method="post">
+        <form action="../BackEnd/Controller.php?method_finder=create"  method="post" id="submitFileForm">
         <fieldset>
             <label for="last_name">Last Name: </label>
             <input type="text" name="last_name" id="lastName">
@@ -54,7 +54,7 @@
             </tr>
             
         </thead>
-        <tbody>
+        <tbody id="files-table">
             <?php
                 $controller = new Controller();
                 $users = $controller->readall();

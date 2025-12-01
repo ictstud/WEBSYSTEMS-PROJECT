@@ -51,7 +51,7 @@
 
      <!-- FORM THAT SHOWS WHEN U CLICK SUBMIT A FILE -->
      <section class="submit-file" id="submitFile" style="display: none;">
-        <form action="../BackEnd/Controller.php?method_finder=create"  method="post">
+        <form action="../BackEnd/Controller.php?method_finder=create"  method="post" id="submitFileForm">
             <div class="form-row">
                 <label for="last_name">Last Name:</label>
                 <input type="text" id="last_name" name="last_name" required>
@@ -139,7 +139,7 @@
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="files-table">
             <?php
                 $controller = new Controller();
 
@@ -183,58 +183,53 @@
         </tbody>
     </table>
 
-<<<<<<< HEAD
     <script src="users.js"></script>
-=======
-    <script src="Users/filesData.js"></script>
-    
->>>>>>> 8e7fa8e5bb05dbf9afed54ac443ceb01a72a492e
-</body>
-<script>
-       // Javascript to show and hide the form
-        const showForm = document.getElementById("showForm");
-        const submitFile = document.getElementById("submitFile");
+    <script>
+    // Javascript to show and hide the form
+     const showForm = document.getElementById("showForm");
+     const submitFile = document.getElementById("submitFile");
 
-        showForm.addEventListener("click", () => {
-            if (submitFile.style.display === "none") {
-                submitFile.style.display = "block";
-            } else {
-                submitFile.style.display = "none";
-            }
-        });
-
-    // Javascript to show and hide the search Bar
-        const showSearch = document.getElementById("showSearch");
-        const searchBar = document.getElementById("searchBar");
-
-        showSearch.addEventListener("click", () => {
-            if (searchBar.style.display === "none") {
-                searchBar.style.display = "block";
-            } else {
-                searchBar.style.display = "none";
-            }
-        });
-     // Alert asking user to confirm before deleting a file
-    document.addEventListener('DOMContentLoaded', function() {
-        const deleteButtons = document.querySelectorAll('.delete');
-        deleteButtons.forEach(function(button) {
-            button.addEventListener('click', function(event) {
-                const confirmDelete = confirm("Are you sure you want to delete this file?");
-                if (!confirmDelete) {
-                    event.preventDefault();
-                }
-            });
-        });
-    });
-    
-    // Alert to confirm successful file submission
-     document.addEventListener('DOMContentLoaded', function() {
-         const submitForm = document.querySelector('section.submit-file form');
-         if (submitForm) {
-             submitForm.addEventListener('submit', function() {
-                 alert('File has been successfully added!');
-             });
+     showForm.addEventListener("click", () => {
+         if (submitFile.style.display === "none") {
+             submitFile.style.display = "block";
+         } else {
+             submitFile.style.display = "none";
          }
      });
+
+ // Javascript to show and hide the search Bar
+     const showSearch = document.getElementById("showSearch");
+     const searchBar = document.getElementById("searchBar");
+
+     showSearch.addEventListener("click", () => {
+         if (searchBar.style.display === "none") {
+             searchBar.style.display = "block";
+         } else {
+             searchBar.style.display = "none";
+         }
+     });
+  // Alert asking user to confirm before deleting a file
+ document.addEventListener('DOMContentLoaded', function() {
+     const deleteButtons = document.querySelectorAll('.delete');
+     deleteButtons.forEach(function(button) {
+         button.addEventListener('click', function(event) {
+             const confirmDelete = confirm("Are you sure you want to delete this file?");
+             if (!confirmDelete) {
+                 event.preventDefault();
+             }
+         });
+     });
+ });
+ 
+ // Alert to confirm successful file submission
+  document.addEventListener('DOMContentLoaded', function() {
+      const submitForm = document.querySelector('section.submit-file form');
+      if (submitForm) {
+          submitForm.addEventListener('submit', function() {
+              alert('File has been successfully added!');
+          });
+      }
+  });
 </script>
+</body>
 </html>
