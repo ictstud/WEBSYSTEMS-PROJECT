@@ -1,8 +1,8 @@
 <?php 
     include "../BackEnd/Controller.php";
 
-    $connect = new Controller();
-    $connect->connection();
+    // $connect = new Controller();
+    // $connect->connection();
 ?>
 
 
@@ -74,12 +74,6 @@
     </table>
 
     <script src="users.js"></script>
-    <script>
-        const firstName;
-        const lastName;
-        const fileName;
-        const dateIssued;
 
-    </script>
 </body>
 </html>
