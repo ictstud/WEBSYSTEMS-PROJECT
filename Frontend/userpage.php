@@ -88,7 +88,7 @@
             </tr>
             
         </thead>
-        <tbody>
+        <tbody id="files-table">
             <?php
                 $controller = new Controller();
                 $users = $controller->readall();

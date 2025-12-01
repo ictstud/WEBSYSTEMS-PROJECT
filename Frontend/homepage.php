@@ -52,7 +52,7 @@
 
      <!-- FORM THAT SHOWS WHEN U CLICK SUBMIT A FILE -->
      <section class="submit-file" id="submitFile" style="display: none;">
-        <form action="../BackEnd/Controller.php?method_finder=create"  method="post">
+        <form action="../BackEnd/Controller.php?method_finder=create"  method="post" id="submitFileForm">
             <div class="form-row">
                 <label for="last_name">Last Name:</label>
                 <input type="text" id="last_name" name="last_name" required>
@@ -140,7 +140,7 @@
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="files-table">
             <?php
                 $controller = new Controller();
 
@@ -180,6 +180,7 @@
             ?>
         </tbody>
     </table>
+
 
     <script src="users.js"></script>
     <script src="Users/filesData.js"></script>
@@ -230,7 +231,21 @@
              submitForm.addEventListener('submit', function() {
                  alert('File has been successfully added!');
              });
-         }
+            }
+        });
+  // Alert asking user to confirm before deleting a file
+ document.addEventListener('DOMContentLoaded', function() {
+     const deleteButtons = document.querySelectorAll('.delete');
+     deleteButtons.forEach(function(button) {
+         button.addEventListener('click', function(event) {
+             const confirmDelete = confirm("Are you sure you want to delete this file?");
+             if (!confirmDelete) {
+                 event.preventDefault();
+             }
+         });
      });
+ });
+ 
 </script>
+</body>
 </html>
