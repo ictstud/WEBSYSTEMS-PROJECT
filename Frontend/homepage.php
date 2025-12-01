@@ -178,7 +178,7 @@
                         <button type="submit"  class="delete">DELETE</button>
                     </form>
 
-                    <td><button class="see-file-btn">Open File</button></td>
+                    <button class="see-file-btn">Open File</button>
                 </td>
             </tr>
             <?php
