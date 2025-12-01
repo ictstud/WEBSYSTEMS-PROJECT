@@ -1,8 +1,5 @@
 <?php 
     include "../BackEnd/Controller.php";
-
-    $connect = new Controller();
-    $connect->connection();
 ?>
 
 
@@ -36,6 +33,9 @@
 
             <label for="date_issued">Date Issued: </label>
             <input type="text" name="date_issued" id="fileName">
+
+            <label for="file">File:</label>
+            <input type="file" name="file" id="file">
         </fieldset>
 
         <input type="submit" value="submit" name="submit_button">

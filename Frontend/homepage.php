@@ -72,6 +72,11 @@
                 <input type="text" id="date_issued" name="date_issued" required>
             </div>
 
+            <div class="form-row">
+                <label for="file">File:</label>
+                <input type="file" name="file" id="file">
+            </div>
+
             <button type="submit" class="btn">Submit File</button>
         </form>
     </section>
@@ -172,6 +177,8 @@
                         <input type="hidden" name="ID" value="<?= htmlspecialchars($user['ID'])?>">
                         <button type="submit"  class="delete">DELETE</button>
                     </form>
+
+                    <td><button class="see-file-btn">Open File</button></td>
                 </td>
             </tr>
             <?php
