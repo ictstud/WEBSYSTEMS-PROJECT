@@ -187,7 +187,7 @@
         </tbody>
     </table>
 
-    <script src="users.js"></script>
+    <script src="Users/filesData.js"></script>
     
 </body>
 <script>
