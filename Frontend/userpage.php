@@ -50,6 +50,7 @@
                 <th>First Name</th>
                 <th>File Name</th>
                 <th>Date Issued</th>
+                <th>Actions</th>
             </tr>
             
         </thead>
@@ -66,6 +67,8 @@
               <td><?=htmlspecialchars($user['first_name'])?></td>
               <td><?=htmlspecialchars($user['file_name'])?></td>
               <td><?=htmlspecialchars($user['date_issued'])?></td>
+
+              <td><button class="see-file-btn">Open File</button></td>
             </tr>
             <?php
             endforeach;
@@ -73,13 +76,6 @@
         </tbody>
     </table>
 
-    <script src="users.js"></script>
-    <script>
-        const firstName;
-        const lastName;
-        const fileName;
-        const dateIssued;
-
-    </script>
+    <script src="Users/filesData.js"></script>
 </body>
 </html>

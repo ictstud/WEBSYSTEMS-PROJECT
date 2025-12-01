@@ -112,7 +112,7 @@
                     <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
                         <input type="hidden" name="method_finder" value="edit">
                         <input type="hidden" name="ID" value="<?= htmlspecialchars($user['ID'])?>">
-                    <button type="submit" class="edit">EDIT</button>
+                    <button type="submit" class="edit">UPDATE</button>
                     </form>
 
                     <!--delete-->
