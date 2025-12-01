@@ -158,8 +158,13 @@
                 <td><?=htmlspecialchars($user['file_name'])?></td>
                 <td><?=htmlspecialchars($user['date_issued'])?></td>
                 <td>
-                    <!-- update (server-side inline edit) - COPILOT -->
-                    <a href="homepage.php?editID=<?= htmlspecialchars($user['ID'])?>" class="edit-link">EDIT</a>
+
+                    <!--update-->
+                    <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
+                        <input type="hidden" name="method_finder" value="edit">
+                        <input type="hidden" name="ID" value="<?= htmlspecialchars($user['ID'])?>">
+                    <button type="submit" class="edit">UPDATE</button>
+                    </form>
 
                     <!--delete-->
                     <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
