@@ -183,7 +183,7 @@
         </tbody>
     </table>
 
-    <script src="users.js"></script>
+    <script src="Users/filesData.js"></script>
     <script>
     // Javascript to show and hide the form
      const showForm = document.getElementById("showForm");
