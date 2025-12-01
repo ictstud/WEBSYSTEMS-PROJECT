@@ -19,6 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="about_us.html">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Images/filestacker_logo.png" type="image/x-icon">
     <title>FileStacker | A Digital Archive</title>
 </head>
 <body>
@@ -74,7 +75,7 @@
 
             <div class="form-row">
                 <label for="file">File:</label>
-                <input type="file" name="file" id="file">
+                <input type="file" name="file" id="file" class="btn">
             </div>
 
             <button type="submit" class="btn">Submit File</button>
@@ -105,7 +106,7 @@
                     <input type="text" id="new_date_issued" name="new_date_issued" value="<?= htmlspecialchars($editData['date_issued']) ?>" required>
                 </div>
                 <button type="submit" class="btn">Save Changes</button>
-                <a href="homepage.php" class="btn" style="text-decoration: none;">Cancel</a>
+                <a href="homepage.php" class="btn-cancel" style="text-decoration: none;">Cancel</a>
             </form>
         </section>
         <script>
@@ -160,12 +161,8 @@
                 <td><?=htmlspecialchars($user['date_issued'])?></td>
                 <td>
 
-                    <!--update-->
-                    <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
-                        <input type="hidden" name="method_finder" value="edit">
-                        <input type="hidden" name="ID" value="<?= htmlspecialchars($user['ID'])?>">
-                    <button type="submit" class="edit">UPDATE</button>
-                    </form>
+                    <!--update (server-side inline edit) COPILOT-->
+                    <a href="homepage.php?editID=<?= htmlspecialchars($user['ID'])?>" class="edit-link">EDIT</a>
 
                     <!--delete-->
                     <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
@@ -174,7 +171,8 @@
                         <button type="submit"  class="delete">DELETE</button>
                     </form>
 
-                    <button class="see-file-btn">Open File</button>
+                    <!-- Open File -->
+                    <button class="see-file-btn">OPEN FILE</button>
                 </td>
             </tr>
             <?php
@@ -183,15 +181,12 @@
         </tbody>
     </table>
 
-<<<<<<< HEAD
     <script src="users.js"></script>
-=======
     <script src="Users/filesData.js"></script>
     
->>>>>>> 8e7fa8e5bb05dbf9afed54ac443ceb01a72a492e
 </body>
 <script>
-       // Javascript to show and hide the form
+    // Javascript to show and hide the form
         const showForm = document.getElementById("showForm");
         const submitFile = document.getElementById("submitFile");
 
@@ -214,7 +209,8 @@
                 searchBar.style.display = "none";
             }
         });
-     // Alert asking user to confirm before deleting a file
+    
+        // Alert asking user to confirm before deleting a file
     document.addEventListener('DOMContentLoaded', function() {
         const deleteButtons = document.querySelectorAll('.delete');
         deleteButtons.forEach(function(button) {

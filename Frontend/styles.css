@@ -218,13 +218,34 @@ table button {
 
 /* DELETE button */
 table .delete[type="submit"] {
-  background-color: #d9534f;
+  background-color: #c3413c;
   color: white;
 }
 
+/* OPEN FILE button */
+table .see-file-btn {
+  background-color: #fada54;
+  color: #38491b;
+}
+
+/* CANCEL button */
+.btn-cancel {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #cf4b46;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #ba3b36;
+}
 /*-------------------------- STYLING FOR ABOUT PAGE ---------------------- */
 #eva, #kath, #fely, #dancel {
-    width: 300px;
+    width: 400px;
     margin: 10px;
     padding: 15px;
     background-color: white;
@@ -236,6 +257,7 @@ table .delete[type="submit"] {
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    border-color: #38491b;
 }
 
 /* Container for team member layout */
