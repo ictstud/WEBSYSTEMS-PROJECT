@@ -7,8 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="about_us.html">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Images/filestacker_logo.png" type="image/x-icon">
     <title>FileStacker | A Digital Archive</title>
 </head>
     <!-- HOMEPAGE SPECIFICALLY FOR USERS -->
@@ -16,9 +16,9 @@
     <!-- NAVIGATION BAR -->
     <nav class="navbar">
     <div class="navbar-left">
-            <img src="Images/bsu_logo.png" alt="Logo" class="logo"/>
+    <img src="Images/bsu_logo.png" alt="Logo" class="logo"/>
     <img src="Images/filestacker_logo.png" alt="Logo" class="logo"/>
-        <span class="site-title">FileStacker | A Digital Archive</span>
+    <span class="site-title">FileStacker | A Digital Archive</span>
     </div>
     <div class="navbar-right">
         <a href="homepage.php">Home</a>
@@ -109,8 +109,9 @@
             ?>
         </tbody>
     </table>
-
-    <script src="Users/filesData.js"></script>
+    
+    <script src="users.js"></script>
+    <!-- <script src="Users/filesData.js"></script> = as of 8:56pm i was having an error where the table wasnt showing up but when i commented this it worked--> 
 </body>
 <script>
      // Javascript to show and hide the form
