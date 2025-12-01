@@ -1,20 +1,20 @@
 /* -------------- MAIN STYLING / OVERALL ------------------- */
 body {
-  font-family: "raleway", sans-serif;
-  text-align: center;
-  margin: 0;
-  background-image: url("Images/bg-img.png");
-  background-color: rgba(205, 224, 206, 0.8);
-  background-blend-mode: overlay;
-  color: #38491b;
-  /* #fada54; */
+    font-family: "raleway", sans-serif;   
+    text-align: center; 
+    margin: 0;
+    background-image: url('Images/bg-img.png');
+    background-color: rgba(205, 224, 206, 0.8); 
+    background-blend-mode: overlay;
+    color: #38491b;
+    /* #fada54; */
 }
 
 /* NAVIGATION BAR STYLING */
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center;  
   padding: 8px 20px;
   height: 50px;
   background-color: #fada54;
@@ -54,50 +54,50 @@ body {
   /* transition: 0.3s ease-in; */
 }
 
-/* SEARCH BAR STYLING */
-.searchBar {
+ /* SEARCH BAR STYLING */
+ .searchBar {
   display: flex;
   justify-content: center;
   margin-top: 20px;
   gap: 15px;
 }
 
-.searchBar input[type="text"] {
-  padding: 8px 12px;
-  width: 400px;
-  outline: none;
-  border-radius: 5px;
-  font-size: 16px;
-  border: 1px solid #38491b;
+ .searchBar input[type="text"] {
+    padding: 8px 12px;
+    width: 400px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid #38491b;
 }
 
-.searchBar button {
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  background-color: #fada54;
-  color: #38491b;
-  transition: background 0.3s ease;
+ .searchBar button{
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #fada54;
+    color: #38491b;
+    transition: background 0.3s ease;
 }
 
 .searchBar button:hover {
-  background-color: #e2bf33;
+    background-color: #e2bf33;
 }
 
 .searchBar button:active {
-  transform: scale(0.98);
+    transform: scale(0.98);
 }
 
 /*-------------------------- STYLING FOR HOME PAGE ---------------------- */
 .container {
-  max-width: 90%;
-  margin: 20px auto;
-  padding: 30px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 header .btn {
@@ -109,16 +109,17 @@ header .btn {
   font-size: 16px;
   cursor: pointer;
   transition: background 0.3s ease;
-}
+  
+}   
 header .btn:hover {
   background-color: #e2bf33;
 }
 
 .submit-file {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 /* ---------------- FORM STYLING --------------- */
 .submit-file {
@@ -131,18 +132,18 @@ header .btn:hover {
   flex-direction: column;
   margin: 0 auto;
   gap: 10px;
-  max-width: 400px;
+  max-width: 400px; 
 }
 /* ---make label and input same row */
 .form-row {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 15px;   
   margin-bottom: 10px;
 }
 
 .form-row label {
-  width: 120px;
+  width: 120px; 
   font-weight: bold;
   color: #38491b;
 }
@@ -179,7 +180,7 @@ table {
 
 /* Header row */
 table thead th {
-  background-color: #fada54;
+  background-color: #fada54;           
   padding: 12px;
   text-align: left;
   font-weight: bold;
@@ -201,14 +202,10 @@ table button {
 }
 
 /* EDIT button */
-table .edit[type="submit"] {
-  background-color: #24aa3d;
+button.edit[type="submit"] {
+  background-color: #47c84c;
   color: white;
-}
-
-.edit button:active {
-  transform: scale(0.98);
-}
+} 
 
 /* DELETE button */
 table .delete[type="submit"] {
@@ -216,42 +213,33 @@ table .delete[type="submit"] {
   color: white;
 }
 
-.delete button:active {
-  transform: scale(0.98);
-}
-
 /*-------------------------- STYLING FOR ABOUT PAGE ---------------------- */
-#eva,
-#kath,
-#fely,
-#dancel {
-  width: 250px;
-  margin: 10px;
-  padding: 15px;
-  border: 1px solid #38491b;
-  color: #38491b;
-  border-radius: 8px;
+#eva, #kath, #fely, #dancel {
+    width: 300px;
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #38491b;
+    color: #38491b;
+    border-radius: 8px;
 }
 
-#eva img,
-#kath img,
-#fely img,
-#dancel img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+#eva img, #kath img, #fely img, #dancel img {
+    width: 100px;
+    height: 150px;
+    border-radius: 50%;
 }
 
 /* Container for team member layout */
 #team-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
 
 #team-members {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 700px;
 }
+
