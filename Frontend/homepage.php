@@ -72,6 +72,11 @@
                 <input type="text" id="date_issued" name="date_issued" required>
             </div>
 
+            <div class="form-row">
+                <label for="file">File:</label>
+                <input type="file" name="file" id="file">
+            </div>
+
             <button type="submit" class="btn">Submit File</button>
         </form>
     </section>
@@ -137,7 +142,13 @@
         <tbody>
             <?php
                 $controller = new Controller();
-                $users = $controller->readall();
+
+            if (isset($_GET['sort']) && $_GET['sort'] == 'date') {
+            $users = $controller->readall_sorted_by_date();
+            } 
+            else {
+            $users = $controller->readall();
+            }
 
                 foreach($users as $user):   
             ?>
@@ -148,8 +159,13 @@
                 <td><?=htmlspecialchars($user['file_name'])?></td>
                 <td><?=htmlspecialchars($user['date_issued'])?></td>
                 <td>
-                    <!-- update (server-side inline edit) - COPILOT -->
-                    <a href="homepage.php?editID=<?= htmlspecialchars($user['ID'])?>" class="edit-link">EDIT</a>
+
+                    <!--update-->
+                    <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
+                        <input type="hidden" name="method_finder" value="edit">
+                        <input type="hidden" name="ID" value="<?= htmlspecialchars($user['ID'])?>">
+                    <button type="submit" class="edit">UPDATE</button>
+                    </form>
 
                     <!--delete-->
                     <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">
@@ -157,6 +173,8 @@
                         <input type="hidden" name="ID" value="<?= htmlspecialchars($user['ID'])?>">
                         <button type="submit"  class="delete">DELETE</button>
                     </form>
+
+                    <button class="see-file-btn">Open File</button>
                 </td>
             </tr>
             <?php
@@ -165,7 +183,12 @@
         </tbody>
     </table>
 
+<<<<<<< HEAD
     <script src="users.js"></script>
+=======
+    <script src="Users/filesData.js"></script>
+    
+>>>>>>> 8e7fa8e5bb05dbf9afed54ac443ceb01a72a492e
 </body>
 <script>
        // Javascript to show and hide the form

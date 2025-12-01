@@ -1,8 +1,5 @@
 <?php 
     include "../BackEnd/Controller.php";
-
-    // $connect = new Controller();
-    // $connect->connection();
 ?>
 
 
@@ -36,6 +33,9 @@
 
             <label for="date_issued">Date Issued: </label>
             <input type="text" name="date_issued" id="fileName">
+
+            <label for="file">File:</label>
+            <input type="file" name="file" id="file">
         </fieldset>
 
         <input type="submit" value="submit" name="submit_button">
@@ -50,6 +50,7 @@
                 <th>First Name</th>
                 <th>File Name</th>
                 <th>Date Issued</th>
+                <th>Actions</th>
             </tr>
             
         </thead>
@@ -66,6 +67,8 @@
               <td><?=htmlspecialchars($user['first_name'])?></td>
               <td><?=htmlspecialchars($user['file_name'])?></td>
               <td><?=htmlspecialchars($user['date_issued'])?></td>
+
+              <td><button class="see-file-btn">Open File</button></td>
             </tr>
             <?php
             endforeach;
@@ -73,7 +76,6 @@
         </tbody>
     </table>
 
-    <script src="users.js"></script>
-
+    <script src="Users/filesData.js"></script>
 </body>
 </html>
