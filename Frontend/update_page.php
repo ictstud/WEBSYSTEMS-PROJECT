@@ -1,11 +1,7 @@
-<?php
-    $id = $_GET['ID'];
-    $conversions = (int) $id;
-    include "../Backend/Controller.php";
-
-    $controller = new Controller();
-    $users_get = $controller->update_take_data($conversions);
+<?php 
+    include "../BackEnd/Controller.php";
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,25 +11,71 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="../BackEnd/Controller.php?method_finder=update" method="post">
-        <input type="hidden" name="ID" value="<?= htmlspecialchars($users_get['ID'])?>">
-        <label for="first_name">First Name:</label>
-        <input type="text" name="new_first_name" value="<?= htmlspecialchars($users_get['first_name'])?>">
-        <br>
-        
-        <label for="last_name">Last Name:</label>
-        <input type="text" name="new_last_name" value="<?= htmlspecialchars($users_get['last_name'])?>">
-        <br>
+     <header>
+        <h1>Welcome to the Digital Archives</h1>
+        <h2>What would you like to do?</h2>
 
-        <label for="file_name">File Name:</label>
-        <input type="text" name="new_file_name" value="<?= htmlspecialchars($users_get['file_name'])?>">
-        <br>
+        <button>Submit a file</button>
+        <button>Search a file</button>
+     </header>
 
-        <label for="date_issued">Date Issued:</label>
-        <input type="text" name="new_date_issued" value="<?= htmlspecialchars($users_get['date_issued'])?>">
-        <br>
+     <section class="submit-file">
+        <form action="../BackEnd/Controller.php?method_finder=create"  method="post" id="submitFileForm">
+        <fieldset>
+            <label for="last_name">Last Name: </label>
+            <input type="text" name="last_name" id="lastName">
+    
+            <label for="first_name">First Name: </label>
+            <input type="text" name="first_name" id="firstName">
+    
+            <label for="file_name">File Name: </label>
+            <input type="text" name="file_name" id="fileName">
 
-        <input type="submit" value="submit">
+            <label for="date_issued">Date Issued: </label>
+            <input type="text" name="date_issued" id="fileName">
+
+            <label for="file">File:</label>
+            <input type="file" name="file" id="file">
+        </fieldset>
+
+        <input type="submit" value="submit" name="submit_button">
     </form>
+     </section>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>File Name</th>
+                <th>Date Issued</th>
+                <th>Actions</th>
+            </tr>
+            
+        </thead>
+        <tbody id="files-table">
+            <?php
+                $controller = new Controller();
+                $users = $controller->readall();
+
+                foreach($users as $user):   
+            ?>
+            <tr>
+              <td><?=htmlspecialchars($user['ID'])?></td>
+              <td><?=htmlspecialchars($user['last_name'])?></td>
+              <td><?=htmlspecialchars($user['first_name'])?></td>
+              <td><?=htmlspecialchars($user['file_name'])?></td>
+              <td><?=htmlspecialchars($user['date_issued'])?></td>
+
+              <td><button class="see-file-btn">Open File</button></td>
+            </tr>
+            <?php
+            endforeach;
+            ?>
+        </tbody>
+    </table>
+
+    <script src="Users/filesData.js"></script>
 </body>
 </html>

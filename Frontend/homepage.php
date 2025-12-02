@@ -19,19 +19,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="about_us.html">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Images/filestacker_logo.png" type="image/x-icon">
     <title>FileStacker | A Digital Archive</title>
 </head>
 <body>
     <!-- A website for the registrar/administration where signing in links all pre-existing files related to them -->
-     
+     <!-- ADMIN PAGE -->
     <!-- TO ADD: -->
-    <!-- Add an admin with special features (to edit and delete) -->
     <!-- Make search bar functionable -->
-    <!-- TODO: set up local storage -->
-     
+
+<!-- NAVIGATION BAR -->
 <nav class="navbar">
   <div class="navbar-left">
     <img src="Images/bsu_logo.png" alt="Logo" class="logo"/>
+    <img src="Images/filestacker_logo.png" alt="Logo" class="logo"/>
     <span class="site-title">FileStacker | A Digital Archive</span>
   </div>
   <div class="navbar-right">
@@ -49,9 +50,9 @@
         <button class="btn" id="showSearch">Search a file</button>
      </header>
 
-     <!-- Form -->
+     <!-- FORM THAT SHOWS WHEN U CLICK SUBMIT A FILE -->
      <section class="submit-file" id="submitFile" style="display: none;">
-        <form action="../BackEnd/Controller.php?method_finder=create"  method="post">
+        <form action="../BackEnd/Controller.php?method_finder=create"  method="post" id="submitFileForm">
             <div class="form-row">
                 <label for="last_name">Last Name:</label>
                 <input type="text" id="last_name" name="last_name" required>
@@ -72,22 +73,19 @@
                 <input type="text" id="date_issued" name="date_issued" required>
             </div>
 
+            <div class="form-row">
+                <label for="file">File:</label>
+                <input type="file" name="file" id="file" class="btn">
+            </div>
+
             <button type="submit" class="btn">Submit File</button>
         </form>
     </section>
 
-    <!-- Search Bar -->
-    <section  id="searchBar" class="searchBar" style="display: none;">
-        <form action="search_results.php" method="get">
-            <input type="text" name="query" placeholder="Search files..." >
-            <button type="submit">Search</button>
-        </form>
-    </section>
-
-    <!-- Inline update form (server-side include when ?editID=) - COPILOT-->
-     <!-- Form that shows when you click EDIT -->
+     <!-- Inline update form (server-side include when ?editID=) - COPILOT-->
+     <!-- FORM THAT SHOWS WHEN YOU CLICK EDIT -->
     <?php if ($editData): ?>
-        <section id="inlineUpdate" class="submit-file" style="display: block; margin-top: 20px;">
+        <section id="inlineUpdate" id="submitFile" class="submit-file" style="display: block; margin-top: 20px;">
             <h2>Edit File #<?= htmlspecialchars($editData['ID']) ?></h2>
             <form action="../BackEnd/Controller.php?method_finder=update" method="post">
                 <input type="hidden" name="ID" value="<?= htmlspecialchars($editData['ID']) ?>">
@@ -108,25 +106,37 @@
                     <input type="text" id="new_date_issued" name="new_date_issued" value="<?= htmlspecialchars($editData['date_issued']) ?>" required>
                 </div>
                 <button type="submit" class="btn">Save Changes</button>
-                <a href="homepage.php" class="btn" style="text-decoration: none;">Cancel</a>
+                <a href="homepage.php" class="btn-cancel" style="text-decoration: none;">Cancel</a>
             </form>
         </section>
         <script>
             // scroll to inline update form after reload - COPILOT
-            document.addEventListener('DOMContentLoaded', function(){
+            document.addEventListener('DOMContentLoaded', function(){ 
                 var el = document.getElementById('inlineUpdate');
                 if (el) el.scrollIntoView({behavior:'smooth', block:'center'});
             });
         </script>
     <?php endif; ?>
+
+    <!-- SEARCH BAR -->
+    <section  id="searchBar" class="searchBar" style="display: none;">
+        <form action="files_table.sql" method="get">
+            <input type="text" name="query" placeholder="Search files..." >
+            <button type="submit">Search</button>
+        </form>
+    </section>
     
 </div>
 
+<<<<<<< HEAD
     <!-- for SORT button -->
     <form action="homepage.php" method="get" style="margin: 20px 0;">
     <button type="submit" name="sort" value="date" class="btn">Sort by Date Issued</button>
     </form>
 
+=======
+<!-- TABLE DISPLAYING RECORDS -->
+>>>>>>> 846545f76b6077b4d829556de3d261596717425b
     <table>
         <thead>
             <tr>
@@ -137,10 +147,13 @@
                 <th>Date Issued</th>
                 <th>Actions</th>
             </tr>
-            
         </thead>
+<<<<<<< HEAD
         <tbody>
 
+=======
+        <tbody id="files-table">
+>>>>>>> 846545f76b6077b4d829556de3d261596717425b
             <?php
             // FOR SORTING
             $controller = new Controller();
@@ -165,7 +178,8 @@
                 <td><?=htmlspecialchars($user['file_name'])?></td>
                 <td><?=htmlspecialchars($user['date_issued'])?></td>
                 <td>
-                    <!-- update (server-side inline edit) - COPILOT -->
+
+                    <!--update (server-side inline edit) COPILOT-->
                     <a href="homepage.php?editID=<?= htmlspecialchars($user['ID'])?>" class="edit-link">EDIT</a>
 
                     <!--delete-->
@@ -174,6 +188,9 @@
                         <input type="hidden" name="ID" value="<?= htmlspecialchars($user['ID'])?>">
                         <button type="submit"  class="delete">DELETE</button>
                     </form>
+
+                    <!-- Open File -->
+                    <button class="see-file-btn">OPEN FILE</button>
                 </td>
             </tr>
             <?php
@@ -182,9 +199,8 @@
         </tbody>
     </table>
 
-    <script src="users.js"></script>
+    <script src="Users/filesData.js"></script>
     
-</body>
 <script>
     // Javascript to show and hide the form
         const showForm = document.getElementById("showForm");
@@ -209,5 +225,29 @@
                 searchBar.style.display = "none";
             }
         });
+    
+        // Alert asking user to confirm before deleting a file
+    document.addEventListener('DOMContentLoaded', function() {
+        const deleteButtons = document.querySelectorAll('.delete');
+        deleteButtons.forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                const confirmDelete = confirm("Are you sure you want to delete this file?");
+                if (!confirmDelete) {
+                    event.preventDefault();
+                }
+            });
+        });
+    });
+    
+    // Alert to confirm successful file submission
+     document.addEventListener('DOMContentLoaded', function() {
+         const submitForm = document.querySelector('section.submit-file form');
+         if (submitForm) {
+             submitForm.addEventListener('submit', function() {
+                 alert('File has been successfully added!');
+             });
+         }
+     });
 </script>
+</body>
 </html>
