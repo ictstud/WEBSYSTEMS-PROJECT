@@ -170,12 +170,16 @@ class Controller {
         }
     }
 
+    // SORT FOR TABLE
     public function readall_sorted_by_date() {
         $sql = "SELECT * FROM files_table ORDER BY date_issued ASC"; 
+        // gets from files_table and sorts them by the date issues
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
+        // makes connection to database to run the query and execute it
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+        // takes what query returns and returns all rows as array
     }
 
 }

@@ -122,6 +122,7 @@
     
 </div>
 
+    <!-- for SORT button -->
     <form action="homepage.php" method="get" style="margin: 20px 0;">
     <button type="submit" name="sort" value="date" class="btn">Sort by Date Issued</button>
     </form>
@@ -139,18 +140,24 @@
             
         </thead>
         <tbody>
+
             <?php
-                $controller = new Controller();
+            // FOR SORTING
+            $controller = new Controller();
 
-            if (isset($_GET['sort']) && $_GET['sort'] == 'date') {
-            $users = $controller->readall_sorted_by_date();
-            } 
-            else {
-            $users = $controller->readall();
-            }
+                if (isset($_GET['sort']) && $_GET['sort'] == 'date') {
+                // checks if the link has a SORT value
+                $users = $controller->readall_sorted_by_date();
+                } 
+                else {
+                $users = $controller->readall();
+                }
+                // this is for when the user wants to sort the data (by date) or not
 
-                foreach($users as $user):   
+                foreach($users as $user):
+                // loops through each result/row in the table   
             ?>
+
             <tr>
                 <td><?=htmlspecialchars($user['ID'])?></td>
                 <td><?=htmlspecialchars($user['last_name'])?></td>
