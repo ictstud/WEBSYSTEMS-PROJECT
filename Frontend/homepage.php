@@ -52,7 +52,7 @@
 
      <!-- FORM THAT SHOWS WHEN U CLICK SUBMIT A FILE -->
      <section class="submit-file" id="submitFile" style="display: none;">
-        <form action="../BackEnd/Controller.php?method_finder=create"  method="post">
+        <form action="../BackEnd/Controller.php?method_finder=create"  method="post" id="submitFileForm">
             <div class="form-row">
                 <label for="last_name">Last Name:</label>
                 <input type="text" id="last_name" name="last_name" required>
@@ -140,7 +140,7 @@
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="files-table">
             <?php
                 $controller = new Controller();
 
@@ -181,10 +181,8 @@
         </tbody>
     </table>
 
-    <script src="users.js"></script>
     <script src="Users/filesData.js"></script>
     
-</body>
 <script>
     // Javascript to show and hide the form
         const showForm = document.getElementById("showForm");
@@ -233,4 +231,5 @@
          }
      });
 </script>
+</body>
 </html>
