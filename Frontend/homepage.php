@@ -128,15 +128,7 @@
     
 </div>
 
-<<<<<<< HEAD
-    <!-- for SORT button -->
-    <form action="homepage.php" method="get" style="margin: 20px 0;">
-    <button type="submit" name="sort" value="date" class="btn">Sort by Date Issued</button>
-    </form>
-
-=======
 <!-- TABLE DISPLAYING RECORDS -->
->>>>>>> 846545f76b6077b4d829556de3d261596717425b
     <table>
         <thead>
             <tr>
