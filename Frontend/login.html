@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digial Archives | Log In</title>
+    <title>Digital Archives | Log In</title>
+    <link rel="stylesheet" href="ALog.css">
 </head>
 <body>
-    <h1>Log In</h1>
+   <div class="container">
+	<div class="container--signin">
+		<div class='box-login-tab'></div>
 
-    <form id="loginForm" novalidate>
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
+		<form action="#" class="form" id="loginForm" novalidate>
+			<h2 class="form__title">Log In</h2>
+			<input type="email" placeholder="Email" class="input" />
+			<input type="password" placeholder="Password" class="input" />
+			<a href="#" class="link">Forgot your password?</a>
+			<button class="btn">Log In</button>
+		</form>
+	</div>
 
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-
-        <input type="submit" value="Log In" id="logInBtn">
-
-        <article id="loginErrors" style="color:darkred;margin-top:8px"></article>
-    </form>
+</div>
 
     <script src="Users/users.js"></script>
 </body>
