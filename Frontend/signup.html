@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digial Archives | Sign Up</title>
+    <title>Digital Archives | Sign Up</title>
+    <link rel="stylesheet" href="SignUpCS.css">
 </head>
 <body>
-    <h1>Sign Up</h1>
 
-    <form id="signupForm" novalidate>
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
+<div class="container">
+	<div class="container--signup">
+		<div class='box-login-tab'></div>
+		
+	<div class="container__form container--signup">
+		<form action="#" class="form" id="signupForm" novalidate>
+			<h2 class="form__title">Sign Up</h2>
+			<input type="text" placeholder="User" class="input" />
+			<input type="email" placeholder="Email" class="input" />
+			<input type="password" placeholder="Password" class="input" />
+			<a href="login.php" class="link"> Already have an account?</a>
+			<button class="btn">Sign Up</button>
+			<article id="signupErrors" style="color:darkred;margin-top:8px"></article>
+        
+		</form>
+</div>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email">
-
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-
-        <input type="submit" value="Sign Up" id="signUpBtn">
-
-        <article id="signupErrors" style="color:darkred;margin-top:8px"></article>
-
-        <h4>Don't have an account?</h4>
-        <a href="login.php">Log In</a>
-    </form>
-    
     <script src="Users/users.js"></script>
 </body>
 </html>
