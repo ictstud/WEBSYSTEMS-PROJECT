@@ -20,6 +20,7 @@
     <link href="about_us.html">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="Images/filestacker_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>FileStacker | A Digital Archive</title>
 </head>
 <body>
@@ -46,10 +47,22 @@
         <h1>Welcome to FileStacker!</h1>
         <hr>
         <h2>What would you like to do?</h2>
-        <button class="btn" id="showForm">Submit a file</button>
-        <button class="btn" id="showSearch">Search a file</button>
+        <button class="btn" id="showForm">
+            <i class="fa-solid fa-file-arrow-up"></i>Submit a file
+        </button>
+        <button class="btn" id="showSearch">
+            <i class="fa-solid fa-magnifying-glass"></i>Search a file
+        </button>
+         <!-- FOR Sort BUTTON -->
+        <form action="homepage.php" method="get" style="margin: 20px 0;">
+            <button type="submit" name="sort" value="date" class="sort-btn">
+               <i class="fa-solid fa-calendar-days"></i>
+               <i class="fa-solid fa-sort"></i>Sort by Date Issued
+            </button>
+        </form>
      </header>
 
+     
      <!-- FORM THAT SHOWS WHEN U CLICK SUBMIT A FILE -->
      <section class="submit-file" id="submitFile" style="display: none;">
         <form action="../BackEnd/Controller.php?method_finder=create"  method="post" id="submitFileForm">
@@ -75,7 +88,7 @@
 
             <div class="form-row">
                 <label for="file">File:</label>
-                <input type="file" name="file" id="file" class="btn">
+                <input type="file" name="file" id="file">
             </div>
 
             <button type="submit" class="btn">Submit File</button>
@@ -122,10 +135,9 @@
     <section  id="searchBar" class="searchBar" style="display: none;">
         <form action="files_table.sql" method="get">
             <input type="text" name="query" placeholder="Search files..." >
-            <button type="submit">Search</button>
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
         </form>
     </section>
-    
 </div>
 
 <!-- TABLE DISPLAYING RECORDS -->
@@ -140,12 +152,7 @@
                 <th>Actions</th>
             </tr>
         </thead>
-<<<<<<< HEAD
-        <tbody>
-
-=======
         <tbody id="files-table">
->>>>>>> 846545f76b6077b4d829556de3d261596717425b
             <?php
             // FOR SORTING
             $controller = new Controller();
