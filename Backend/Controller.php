@@ -81,14 +81,14 @@ class Controller {
         }
     } 
 
-        // UPDATE (changes)
+        // UPDATE FUNCTION (some changes)
         public function update() {
         $id = $_POST['ID'];
         $last_name = $_POST['new_last_name'];
         $first_name = $_POST['new_first_name'];
         $file_name = $_POST['new_file_name'];
 
-        // convert date
+        // converts the date into MMDDYYYY
         $date_raw = $_POST['new_date_issued'];
         $date_issued = $this->convertToMMDDYYYY($date_raw);
 
@@ -155,13 +155,13 @@ class Controller {
         }
     }
 
-    // CREATE (changes)
+    // CREATE FUNCTION (changes)
     public function create() {
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
         $file_name = $_POST['file_name'];
 
-        // SINGLE clean conversion function
+        // converts to MMDDYYYY
         $formattedDate = $this->convertToMMDDYYYY($_POST['date_issued']);
 
         if ($formattedDate === null) {
@@ -194,6 +194,7 @@ class Controller {
         // takes what query returns and returns all rows as array
     }
 
+    // CONVERTS DATE (STRING) INTO MM/DD/YYYY
     private function convertToMMDDYYYY($dateString) {
         $timestamp = strtotime($dateString);
 
