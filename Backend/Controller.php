@@ -7,7 +7,7 @@ class Controller {
     //     $this->connection = $this->connection();
     // }
 
-    //added by chatgpt
+    //fixed by chatgpt
     public function __construct(){
         $this->connection = $this->connectDB();
     }   
@@ -106,7 +106,6 @@ class Controller {
             }
         }
     }
-
 
     public function delete(){
        if(isset($_GET['ID'])){ //check the id

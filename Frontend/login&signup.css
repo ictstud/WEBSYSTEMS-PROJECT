@@ -37,6 +37,10 @@ body {
 	text-decoration: none;
 }
 
+a .link:hover {
+	text-decoration: underline;
+}
+
 .box-login-tab {
 	width: 50%;
 	height: 40px;

@@ -53,7 +53,8 @@
         <button class="btn" id="showSearch">
             <i class="fa-solid fa-magnifying-glass"></i>Search a file
         </button>
-         <!-- FOR Sort BUTTON - Toggle between sorted and unsorted -->
+        
+        <!-- FOR Sort BUTTON - Toggle between sorted and unsorted -->
         <?php
             $isSorted = isset($_GET['sort']) && $_GET['sort'] == 'date';
             $sortLabel = $isSorted ? 'Unsort' : 'Sort by Date Issued';
@@ -130,6 +131,10 @@
                 <div class="form-row">
                     <label for="new_date_issued">Date Issued:</label>
                     <input type="text" id="new_date_issued" name="new_date_issued" value="<?= htmlspecialchars($editData['date_issued']) ?>" required>
+                </div>
+                <div class="form-row">
+                    <label for="file">File:</label>
+                    <input type="file" name="file" id="file">
                 </div>
                 <button type="submit" class="btn">Save Changes</button>
                 <a href="homepage.php" class="btn-cancel" style="text-decoration: none;">Cancel</a>

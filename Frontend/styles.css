@@ -6,6 +6,11 @@ body {
     margin: 0;
     background-image: url('Images/bg-img.png');
     background-color: rgba(205, 224, 206, 0.8); 
+    
+    background-repeat: no-repeat;
+    background-size: cover;   /* or contain depending on your preference */
+    background-position: center top;
+    
     background-blend-mode: overlay;
     color: #38491b;
     /* #fada54; */
@@ -293,7 +298,3 @@ table .see-file-btn {
     justify-content: center;
     max-width: 800px;
 }
-
-
-
-
