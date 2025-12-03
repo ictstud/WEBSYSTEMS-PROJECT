@@ -53,13 +53,26 @@
         <button class="btn" id="showSearch">
             <i class="fa-solid fa-magnifying-glass"></i>Search a file
         </button>
-         <!-- FOR Sort BUTTON -->
-        <form action="homepage.php" method="get" style="margin: 20px 0;">
-            <button type="submit" name="sort" value="date" class="sort-btn">
-               <i class="fa-solid fa-calendar-days"></i>
-               <i class="fa-solid fa-sort"></i>Sort by Date Issued
-            </button>
-        </form>
+         <!-- FOR Sort BUTTON - Toggle between sorted and unsorted -->
+        <?php
+            $isSorted = isset($_GET['sort']) && $_GET['sort'] == 'date';
+            $sortLabel = $isSorted ? 'Unsort' : 'Sort by Date Issued';
+        ?>
+        <button class="sort-btn" id="sortBtn" style="margin: 20px 0;">
+           <i class="fa-solid fa-calendar-days"></i>
+           <i class="fa-solid fa-sort"></i><?= htmlspecialchars($sortLabel) ?>
+        </button>
+        <script>
+            document.getElementById('sortBtn').addEventListener('click', function() {
+                const url = new URL(window.location);
+                if (url.searchParams.has('sort')) {
+                    url.searchParams.delete('sort');
+                } else {
+                    url.searchParams.set('sort', 'date');
+                }
+                window.location.href = url.toString();
+            });
+        </script>
      </header>
 
      
@@ -198,7 +211,7 @@
         </tbody>
     </table>
 
-    <!-- <script src="Users/filesData.js"></script> -->
+    <script src="Users/filesData.js"></script>
     
 <script>
     // Javascript to show and hide the form
@@ -237,16 +250,6 @@
             });
         });
     });
-    
-    // Alert to confirm successful file submission
-     document.addEventListener('DOMContentLoaded', function() {
-         const submitForm = document.querySelector('section.submit-file form');
-         if (submitForm) {
-             submitForm.addEventListener('submit', function() {
-                 alert('File has been successfully added!');
-             });
-         }
-     });
 </script>
 </body>
 </html>

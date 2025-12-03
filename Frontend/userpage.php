@@ -37,7 +37,7 @@
 
       <!-- FORM THAT SHOWS WHEN U CLICK SUBMIT A FILE -->
      <section class="submit-file" id="submitFile" style="display: none;">
-        <form action="../BackEnd/Controller.php?method_finder=create"  method="post">
+        <form action="../BackEnd/Controller.php?method_finder=create"  method="post" id="submitFileForm">
             <div class="form-row">
                 <label for="last_name">Last Name:</label>
                 <input type="text" id="last_name" name="last_name" required>
@@ -137,15 +137,7 @@
                 searchBar.style.display = "none";
             }
         });
-
-    // Alert to confirm successful file submission
-     document.addEventListener('DOMContentLoaded', function() {
-         const submitForm = document.querySelector('section.submit-file form');
-         if (submitForm) {
-             submitForm.addEventListener('submit', function() {
-                 alert('File has been successfully added!');
-             });
-         }
-     });
 </script>
+
+<script src="Users/filesData.js"></script>
 </html>
