@@ -81,29 +81,32 @@ class Controller {
         }
     } 
 
-    public function update() {
+        // UPDATE (changes)
+        public function update() {
         $id = $_POST['ID'];
         $last_name = $_POST['new_last_name'];
         $first_name = $_POST['new_first_name'];
         $file_name = $_POST['new_file_name'];
-        $date_issued = $_POST['new_date_issued'];
 
-        echo $last_name, $first_name, $file_name, $date_issued;
+        // convert date
+        $date_raw = $_POST['new_date_issued'];
+        $date_issued = $this->convertToMMDDYYYY($date_raw);
 
-        if($id){
-            $sql = "UPDATE files_table SET first_name=?, last_name=?, file_name=?, date_issued=? WHERE ID = ?";
-            $stmt = $this->connection->prepare($sql);
+        if ($date_issued === null) {
+            die("Invalid date format.");
+        }
 
-            if($stmt){
-                $stmt->bind_param("ssssi", $first_name, $last_name, $file_name, $date_issued, $id);
+        $sql = "UPDATE files_table SET first_name=?, last_name=?, file_name=?, date_issued=? WHERE ID = ?";
+        $stmt = $this->connection->prepare($sql);
 
-                if($stmt->execute()){
-                    $location="../Frontend/homepage.php";
-                    header("location:$location");
-                }
+        if($stmt){
+            $stmt->bind_param("ssssi", $first_name, $last_name, $file_name, $date_issued, $id);
+            if($stmt->execute()){
+                header("location: ../Frontend/homepage.php");
             }
         }
     }
+
 
     public function delete(){
        if(isset($_GET['ID'])){ //check the id
@@ -152,27 +155,36 @@ class Controller {
         }
     }
 
+    // CREATE (changes)
     public function create() {
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
         $file_name = $_POST['file_name'];
-        $date_issued = $_POST['date_issued'];
 
-        $sql = "INSERT INTO files_table (last_name, first_name, file_name, date_issued) VALUES (?, ?, ?, ?)";
+        // SINGLE clean conversion function
+        $formattedDate = $this->convertToMMDDYYYY($_POST['date_issued']);
+
+        if ($formattedDate === null) {
+            die("Invalid date format. Please enter a valid date.");
+        }
+
+        $sql = "INSERT INTO files_table (last_name, first_name, file_name, date_issued)
+                VALUES (?, ?, ?, ?)";
+
         $stmt = $this->connection->prepare($sql);
-        $stmt->bind_param("ssss", $last_name, $first_name, $file_name, $date_issued);
+        $stmt->bind_param("ssss", $last_name, $first_name, $file_name, $formattedDate);
 
-        if ($stmt->execute()){
+        if ($stmt->execute()) {
             header("Location: ../Frontend/homepage.php?success=1");
             exit();
         } else {
-            echo "Error creating user: " . $stmt->error;
+            echo "Error creating record: " . $stmt->error;
         }
     }
 
     // SORT FOR TABLE
     public function readall_sorted_by_date() {
-        $sql = "SELECT * FROM files_table ORDER BY date_issued ASC"; 
+        $sql = "SELECT * FROM files_table ORDER BY STR_TO_DATE(date_issued, '%m/%d/%Y') ASC"; 
         // gets from files_table and sorts them by the date issues
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
@@ -180,6 +192,16 @@ class Controller {
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
         // takes what query returns and returns all rows as array
+    }
+
+    private function convertToMMDDYYYY($dateString) {
+        $timestamp = strtotime($dateString);
+
+        if ($timestamp === false) {
+            return null; 
+        }
+
+        return date("m/d/Y", $timestamp); 
     }
 
 }
