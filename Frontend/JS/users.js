@@ -1,6 +1,3 @@
-// Pre-existing accounts for testing:
-// johndoe, $2y$10$Yb6vkeGNiLzpk6KHFOAXC.gmFbVIYpNYuUkIcEf7K349CyoO1S.r2 (admin)
-
 const form = document.querySelector("#signupForm");
 const usernameInput = document.querySelector("#username");
 const emailInput = document.querySelector("#email");
@@ -71,7 +68,7 @@ if (form) {
     const created = await registerUser(username, email, password);
     if (created && created.ok) {
       // Redirect to login after successful signup
-      window.location.href = created.redirect_to || "../Frontend/login.php";
+      window.location.href = created.redirect_to || "../Frontend/login.html";
     } else {
       showErrors([created.error || "Could not create account"]);
     }
@@ -80,7 +77,7 @@ if (form) {
 
 // --- Login error handling and rediretion (if on login page) ---
 const loginForm = document.querySelector("#loginForm");
-const loginUsername = document.querySelector("#username");
+const loginUsername = document.querySelector("#email");
 const loginPassword = document.querySelector("#password");
 const loginErrors = document.querySelector("#loginErrors");
 

@@ -34,6 +34,7 @@
   <div class="navbar-right">
     <a href="homepage.php">Home</a>
     <a href="about_us.html">About</a>
+    <a href="login.html">Log Out</a>
   </div>
 </nav>
 
@@ -230,34 +231,11 @@
         </tbody>
     </table>
 
-    <script src="Users/filesData.js"></script>
-    
+    <script src="JS/filesData.js"></script>
+    <script src="JS/toggleVisibility.js"></script>
+    <script src="JS/microUX.js"></script>
 <script>
-    // Javascript to show and hide the form
-        const showForm = document.getElementById("showForm");
-        const submitFile = document.getElementById("submitFile");
-
-        showForm.addEventListener("click", () => {
-            if (submitFile.style.display === "none") {
-                submitFile.style.display = "block";
-            } else {
-                submitFile.style.display = "none";
-            }
-        });
-
-    // Javascript to show and hide the search Bar
-        const showSearch = document.getElementById("showSearch");
-        const searchBar = document.getElementById("searchBar");
-
-        showSearch.addEventListener("click", () => {
-            if (searchBar.style.display === "none") {
-                searchBar.style.display = "block";
-            } else {
-                searchBar.style.display = "none";
-            }
-        });
-    
-        // Alert asking user to confirm before deleting a file
+    // Alert asking user to confirm before deleting a file
     document.addEventListener('DOMContentLoaded', function() {
         const deleteButtons = document.querySelectorAll('.delete');
         deleteButtons.forEach(function(button) {

@@ -43,15 +43,6 @@ class Controller {
         if(!defined('DB_NAME')){
             define('DB_NAME','database');
         }
-
-        //old code:
-        // $this->connection=new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
-        // if($this->connection->connect_error){
-        //     die("connection failed:".$this->connection->connect_error);
-        // }
-        // echo"<script>console.log('There was a connection');</script>";
-        // return $this->connection;
         
         //suggested by chatgpt to fix our code daw
         $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
@@ -71,9 +62,6 @@ class Controller {
             }
             elseif($action === 'delete'){
                 $this->delete();
-            }
-            elseif($action === 'edit'){
-                $this->edit();
             }
             elseif($action === 'update'){
                 $this->update();
@@ -121,18 +109,6 @@ class Controller {
             }
         }
        }
-    }
-
-    public function edit() {
-        $id = $_GET['ID'];
-        $conversions = (int) $id;
-        
-        if($conversions != null) {
-            $location = "../Frontend/update_page.php?ID=" .urlencode($conversions);
-            header("location: $location");
-        }else {
-            echo "The ID does not exist";
-        }
     }
 
     public function update_take_data($id){

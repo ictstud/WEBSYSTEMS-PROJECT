@@ -23,23 +23,23 @@ $input = json_decode(file_get_contents('php://input'), true);
 // Get from $_POST if there is no JSON input
 if(!$input) $input = $_POST;
 
-// extract username and password from input
-$username = isset($input['username']) ? trim($input['username']) : '';
+// extract email and password from input
+$email = isset($input['email']) ? trim($input['email']) : '';
 $password = isset($input['password']) ? $input['password'] : '';
 
 // Error handling for empty fields
-if($username === '' || $password === ''){
-    echo json_encode(['ok'=>false, 'error'=>'Username and password required']);
+if($email === '' || $password === ''){
+    echo json_encode(['ok'=>false, 'error'=>'Email and password required']);
     exit;
 }
 
-// Prepares a SQL query to fetch user details by username.
-$stmt = $mysqli->prepare('SELECT id, username, password, isAdmin FROM users_table WHERE username = ? LIMIT 1');
+// Prepares a SQL query to fetch user details by email.
+$stmt = $mysqli->prepare('SELECT id, email, password, isAdmin FROM users_table WHERE email = ? LIMIT 1');
 if(!$stmt){
     echo json_encode(['ok'=>false, 'error'=>'Query prepare failed']);
     exit;
 }
-$stmt->bind_param('s', $username);
+$stmt->bind_param('s', $email);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -60,7 +60,7 @@ if(!hash_equals($row['password'], $password)){
 
 // login successful: set session
 $_SESSION['user_id'] = $row['id'];
-$_SESSION['username'] = $row['username'];
+$_SESSION['email'] = $row['email'];
 $_SESSION['isAdmin'] = intval($row['isAdmin']);
 
 echo json_encode(['ok'=>true, 'isAdmin' => intval($row['isAdmin'])]);
