@@ -22,7 +22,9 @@ if($mysqli->connect_error){
     exit; 
 }
 
+// determines what action to take
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
+
 
 if($action === 'upload' && $_SERVER['REQUEST_METHOD'] === 'POST'){
     
@@ -50,6 +52,7 @@ if($action === 'upload' && $_SERVER['REQUEST_METHOD'] === 'POST'){
         exit;
     }
 
+    // Reads the other form fields
     $last = isset($_POST['last_name']) ? trim($_POST['last_name']) : '';
     $first = isset($_POST['first_name']) ? trim($_POST['first_name']) : '';
     $fname = isset($_POST['file_name']) ? trim($_POST['file_name']) : '';
@@ -91,6 +94,7 @@ if($action === 'upload' && $_SERVER['REQUEST_METHOD'] === 'POST'){
         exit;
     }
 
+    // Prepares SQL insert query
     $stmt = $mysqli->prepare('INSERT INTO files_table (last_name, first_name, file_name, file_type, original_name, file_blob, date_issued) VALUES (?, ?, ?, ?, ?, ?, ?)');
     if(!$stmt){ 
         echo json_encode(['ok'=>false,'error'=>'Database prepare failed: '.$mysqli->error]); 
@@ -120,6 +124,7 @@ if($action === 'upload' && $_SERVER['REQUEST_METHOD'] === 'POST'){
     exit;
 }
 
+// Fetch file by ID
 if($action === 'download' && isset($_GET['id'])){
     $id = intval($_GET['id']);
     $stmt = $mysqli->prepare('SELECT file_blob, file_type, original_name FROM files_table WHERE ID = ? LIMIT 1');
@@ -160,6 +165,7 @@ if($action === 'download' && isset($_GET['id'])){
     exit;
 }
 
+// check if file exists from given ID
 if($action === 'has' && isset($_GET['id'])){
     $id = intval($_GET['id']);
     $stmt = $mysqli->prepare('SELECT file_blob IS NOT NULL AS hasblob FROM files_table WHERE ID = ? LIMIT 1');
