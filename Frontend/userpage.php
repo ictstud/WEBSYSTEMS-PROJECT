@@ -31,6 +31,7 @@
         <a href="homepage.php">Home</a>
         <a href="about_us.html">About</a>
         <a href="login.html">Log Out</a>
+        <i class="fas fa-moon" id="darkModeBtn"></i>
     </div>
     </nav>
 

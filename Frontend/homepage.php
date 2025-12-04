@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>FileStacker | A Digital Archive</title>
 </head>
-<body class="dark-mode">
+<body>
     <!-- A website for the registrar/administration where signing in links all pre-existing files related to them -->
 
 <!-- NAVIGATION BAR -->

@@ -4,7 +4,7 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   text-align: center;
   margin: 0;
-  background-image: url("Images/bg-img.png");
+  background-image: url("../Images/bg-img.png");
   background-color: #cde0cecc;
   background-blend-mode: overlay;
   color: #38491b;
@@ -12,7 +12,7 @@ body {
 }
 
 body.dark-mode {
-  background-image: url("Images/dark-bg-img.png");
+  background-image: url("../Images/dark-bg-img.png");
   background-size: 140%;
   background-color: transparent;
 }
