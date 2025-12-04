@@ -61,7 +61,7 @@ body.dark-mode {
   /* transition: 0.3s ease-in; */
 }
 
-.navbar-right .fas {
+.navbar-right i {
   cursor: pointer;
 }
 
