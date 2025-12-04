@@ -61,10 +61,6 @@ body.dark-mode {
   /* transition: 0.3s ease-in; */
 }
 
-.navbar-right i {
-  cursor: pointer;
-}
-
 /* SEARCH BAR STYLING */
 .category-select {
   padding: 8px 12px;
