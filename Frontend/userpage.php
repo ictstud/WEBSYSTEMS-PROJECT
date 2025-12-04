@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Styles/styles.css">
     <link rel="icon" href="Images/filestacker_logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>FileStacker | A Digital Archive</title>
@@ -200,7 +200,7 @@
               <td>
             
                <!--update (server-side inline edit) COPILOT-->
-                <a href="homepage.php?editID=<?= htmlspecialchars($user['ID'])?>" class="edit-link">EDIT</a>
+                <a href="homepage.php?editID=<?= htmlspecialchars($user['ID'])?>" class="edit-link edit">EDIT</a>
 
               <button class="see-file-btn">OPEN FILE</button>
             </tr>

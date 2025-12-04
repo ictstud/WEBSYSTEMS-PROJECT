@@ -16,12 +16,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="about_us.html">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Styles/styles.css">
     <link rel="icon" href="Images/filestacker_logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>FileStacker | A Digital Archive</title>
 </head>
-<body>
+<body class="dark-mode">
     <!-- A website for the registrar/administration where signing in links all pre-existing files related to them -->
 
 <!-- NAVIGATION BAR -->
@@ -35,6 +35,7 @@
     <a href="homepage.php">Home</a>
     <a href="about_us.html">About</a>
     <a href="login.html">Log Out</a>
+    <i class="fas fa-moon" id="darkModeBtn"></i>
   </div>
 </nav>
 
@@ -212,7 +213,7 @@
                 <td>
 
                     <!--update (server-side inline edit) COPILOT-->
-                    <a href="homepage.php?editID=<?= htmlspecialchars($user['ID'])?>" class="edit-link">EDIT</a>
+                    <a href="homepage.php?editID=<?= htmlspecialchars($user['ID'])?>" class="edit-link edit">EDIT</a>
 
                     <!--delete-->
                     <form action="../BackEnd/Controller.php?" method="get" style="display:inline;">

@@ -1,21 +1,27 @@
 /* -------------- MAIN STYLING / OVERALL ------------------- */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;  
-    text-align: center; 
-    margin: 0;
-    background-image: url('Images/bg-img.png');
-    background-color: rgba(205, 224, 206, 0.8);     
-    background-blend-mode: overlay;
-    color: #38491b;
-    /* #fada54; */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-align: center;
+  margin: 0;
+  background-image: url("Images/bg-img.png");
+  background-color: #cde0cecc;
+  background-blend-mode: overlay;
+  color: #38491b;
+  /* #fada54; */
+}
+
+body.dark-mode {
+  background-image: url("Images/dark-bg-img.png");
+  background-size: 140%;
+  background-color: transparent;
 }
 
 /* NAVIGATION BAR STYLING */
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;  
+  align-items: center;
   padding: 8px 20px;
   height: 50px;
   background-color: #fada54;
@@ -55,76 +61,86 @@ body {
   /* transition: 0.3s ease-in; */
 }
 
- /* SEARCH BAR STYLING */
+/* SEARCH BAR STYLING */
 .category-select {
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 16px;
-    border: 1px solid #38491b;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: 1px solid #38491b;
 }
 
- .searchBar {
+.searchBar {
   display: flex;
   justify-content: center;
   margin-top: 20px;
   gap: 15px;
 }
 
- .searchBar input[type="text"] {
-    padding: 8px 12px;
-    width: 400px;
-    outline: none;
-    border-radius: 5px;
-    font-size: 16px;
-    border: 1px solid #38491b;
+.searchBar input[type="text"] {
+  padding: 8px 12px;
+  width: 400px;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  border: 1px solid #38491b;
 }
 
- .searchBar button{
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    background-color: #fada54;
-    color: #38491b;
+.searchBar button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #fada54;
+  color: #38491b;
 }
 
 .sort-btn {
   border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    background-color: #fada54;
-    color: #38491b;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #fada54;
+  color: #38491b;
 }
 
 /* GENERAL STYLING FOR BUTTONS, incuding the EDIT button which is a link */
-button:hover, .btn:hover, .submit-file .btn:hover, .btn-cancel:hover, .edit-link:hover {
+button:hover,
+.btn:hover,
+.submit-file .btn:hover,
+.btn-cancel:hover,
+.edit-link:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
-button:active, .btn:active, .edit-link:active{
+button:active,
+.btn:active,
+.edit-link:active {
   transform: translateY(0);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-
 /*-------------------------- STYLING FOR HOME PAGE ---------------------- */
 .container {
-    max-width: 90%;
-    margin: 20px auto;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  max-width: 90%;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: #ffffffe6;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .container {
+  background-color: #000000a3;
+  color: #e2ffe4;
 }
 
 hr {
-    width: 450px;
-    height: 2px;
-    background-color: #38491b;
+  width: 450px;
+  height: 2px;
+  background-color: #38491b;
 }
 
 header .btn {
@@ -135,19 +151,19 @@ header .btn {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-}   
+}
 
 /* ICONS STYLING */
 i {
-    margin-right: 8px;
-    font-size: large;
+  margin-right: 8px;
+  font-size: large;
 }
 
 .submit-file {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 }
 /* ---------------- FORM STYLING --------------- */
 .submit-file {
@@ -160,18 +176,18 @@ i {
   flex-direction: column;
   margin: 0 auto;
   gap: 10px;
-  max-width: 400px; 
+  max-width: 400px;
 }
 /* ---make label and input same row */
 .form-row {
   display: flex;
   align-items: center;
-  gap: 15px;   
+  gap: 15px;
   margin-bottom: 10px;
 }
 
 .form-row label {
-  width: 120px; 
+  width: 120px;
   font-weight: bold;
   color: #38491b;
 }
@@ -204,7 +220,7 @@ table {
 
 /* Header row */
 table thead th {
-  background-color: #fada54;           
+  background-color: #fada54;
   padding: 12px;
   text-align: left;
   font-weight: bold;
@@ -212,6 +228,11 @@ table thead th {
 }
 
 /* Table rows */
+.dark-mode table tbody td {
+  background: #000000a3;
+  color: #e2ffe4;
+}
+
 table tbody td {
   padding: 10px;
   background-color: #fffffc;
@@ -236,9 +257,9 @@ table button {
   background-color: #3eac42;
   gap: 10px;
   display: inline-block;
-} 
+}
 
-.edit-link:hover{
+.edit-link:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
@@ -271,32 +292,38 @@ table .see-file-btn {
   background-color: #ba3b36;
 }
 /*-------------------------- STYLING FOR ABOUT PAGE ---------------------- */
-#eva, #kath, #fely, #dancel {
-    width: 400px;
-    margin: 10px;
-    padding: 15px;
-    background-color: white;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+#eva,
+#kath,
+#fely,
+#dancel {
+  width: 400px;
+  margin: 10px;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
 }
 
-#eva img, #kath img, #fely img, #dancel img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border-color: #38491b;
+#eva img,
+#kath img,
+#fely img,
+#dancel img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border-color: #38491b;
 }
 
 /* Container for team member layout */
 #team-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 #team-members {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 800px;
 }
