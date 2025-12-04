@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FileStacker | Log In</title>
-    <link rel="stylesheet" href="login&signup.css">
-</head>
-<body>
-   <div class="container">
-	<div class="container--signin">
-		<div class='box-login-tab'></div>
+    <link rel="stylesheet" href="login&signup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="container--signin">
+        <div class="box-login-tab"></div>
 
-		<form action="#" class="form" id="loginForm" novalidate>
-			<h2 class="form__title">Log In</h2>
-			<input type="email" placeholder="Email" class="input" />
-			<input type="password" placeholder="Password" class="input" />
-			<a href="signup.html" class="link">Don't have an account?</a>
-			<button class="btn">Log In</button>
-		</form>
-	</div>
+        <form action="#" class="form" id="loginForm" novalidate>
+          <h2 class="form__title">Log In</h2>
+          <input
+            type="username"
+            placeholder="Username"
+            class="input"
+            name="username"
+            id="username"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            class="input"
+            name="password"
+            id="password"
+          />
+          <a href="signup.html" class="link">Don't have an account?</a>
+          <button class="btn">Log In</button>
 
-</div>
+          <article
+            id="loginErrors"
+            style="color: darkred; margin-top: 8px"
+          ></article>
+        </form>
+      </div>
+    </div>
 
     <script src="Users/users.js"></script>
-</body>
+  </body>
 </html>
