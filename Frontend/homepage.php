@@ -153,7 +153,7 @@
     <!-- SEARCH BAR (CHANGES) -->
     <section id="searchBar" class="searchBar" style="display: none;">
         <form action="homepage.php" method="get">
-            <select name="category" required>
+            <select name="category" required class="category-select">
                 <option value="">Search by...</option>
                 <option value="ID">ID</option>
                 <option value="last_name">Last Name</option>

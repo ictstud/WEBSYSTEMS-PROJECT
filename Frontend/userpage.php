@@ -141,10 +141,23 @@
     <?php endif; ?>
 
         <!-- SEARCH BAR -->
-    <section  id="searchBar" class="searchBar" style="display: none;">
-        <form action="files_table.sql" method="get">
-            <input type="text" name="query" placeholder="Search files..." >
-            <button type="submit">Search</button>
+    <!-- SEARCH BAR (CHANGES) -->
+    <section id="searchBar" class="searchBar" style="display: none;">
+        <form action="homepage.php" method="get">
+            <select name="category" required class="category-select">
+                <option value="">Search by...</option>
+                <option value="ID">ID</option>
+                <option value="last_name">Last Name</option>
+                <option value="first_name">First Name</option>
+                <option value="file_name">File Name</option>
+                <option value="date_issued">Date Issued</option>
+            </select>
+
+            <input type="text" name="keyword" placeholder="Enter search keyword..." required>
+
+            <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i> Search
+            </button>
         </form>
     </section>
 </div>
