@@ -1,15 +1,15 @@
 /*-------------------------- STYLING FOR LOG IN PAGE ---------------------- */
 
 :root {
-	/* RADII */
-	--button-radius: 0.7rem;
-	/* SIZES */
-	--max-width: 380px; 
-	--max-height: 420px;
+  /* RADII */
+  --button-radius: 0.7rem;
+  /* SIZES */
+  --max-width: 380px;
+  --max-height: 420px;
 
-	font-size: 16px;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body {
@@ -25,114 +25,115 @@ body {
 }
 
 .form__title {
-	font-weight: 300;
-	margin: 0;
-	margin-bottom: 1.25rem;
+  font-weight: 300;
+  margin: 0;
+  margin-bottom: 1.25rem;
 }
 
 .link {
-	color: #333;
-	font-size: 0.9rem;
-	margin: 1.5rem 0;
-	text-decoration: none;
+  color: #333;
+  font-size: 0.9rem;
+  margin: 1.5rem 0;
+  text-decoration: none;
 }
 
 a .link:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 .box-login-tab {
-	width: 50%;
-	height: 40px;
-	background: #D4CFC9;
-	position: absolute;
-	top: -28px; 
-	left: 0;
-	z-index: 1;
-	border-radius: 6px 6px 0 0;
-	transform: perspective(5px) rotateX(0.93deg) translateZ(-1px);
-	transform-origin: 0 0;
-	backface-visibility: hidden;
-	box-shadow: 15px -10px 0px rgba(0,0,0,0.32);
+  width: 50%;
+  height: 40px;
+  background: #d4cfc9;
+  position: absolute;
+  top: -28px;
+  left: 0;
+  z-index: 1;
+  border-radius: 6px 6px 0 0;
+  transform: perspective(5px) rotateX(0.93deg) translateZ(-1px);
+  transform-origin: 0 0;
+  backface-visibility: hidden;
+  box-shadow: 15px -10px 0px rgba(0, 0, 0, 0.32);
 }
 
 .container {
-	position: relative;
-	border-radius: var(--button-radius);
-	height: var(--max-height);
-	max-width: var(--max-width);
-	width: 100%; 
-	display: flex;
-	justify-content: center;
+  position: relative;
+  border-radius: var(--button-radius);
+  height: var(--max-height);
+  max-width: var(--max-width);
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .container--signin {
-	width: 100%;
-	z-index: 2;
-	position: relative;
+  width: 100%;
+  z-index: 2;
+  position: relative;
 }
 
 .btn {
-	background-color: #2D3A16;
-	background-image: linear-gradient(90deg, #2D3A16 0%, #536C2E 74%);
-	border-radius: 20px;
-	border: 1px solid #2D3A16;
-	color: #e9e9e9;;
-	cursor: pointer;
-	font-size: 0.8rem;
-	font-weight: bold;
-	letter-spacing: 0.1rem;
-	padding: 0.9rem 4rem;
-	text-transform: uppercase;
-	transition: transform 80ms ease-in;
+  background-color: #2d3a16;
+  background-image: linear-gradient(90deg, #a5d849 0%, #6a8a3b 74%);
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  color: #e9e9e9;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  padding: 0.9rem 4rem;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
 }
 
 .form > .btn {
-	margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .btn:active {
-	transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 .btn:focus {
-	outline: none;
+  outline: none;
 }
 
 .form {
-	background-color: #D4CFC9;
-	border-radius: var(--button-radius);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 3rem;
-	height: 100%;
-	text-align: center;
-	box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25),
-		0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
+  background-color: #d4cfc9;
+  border-radius: var(--button-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 3rem;
+  height: 100%;
+  text-align: center;
+  box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25),
+    0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
 }
 
 .input {
-	background-color: #fff;
-	border: none;
-	padding: 0.9rem 0.9rem;
-	margin: 0.5rem 0;
-	width: 100%;
+  background-color: #fff;
+  border: none;
+  padding: 0.9rem 0.9rem;
+  margin: 0.5rem 0;
+  width: 100%;
 }
 
 /*-------------------------- STYLING SIGN UP PAGE ---------------------- */
 
 :root {
-	/* RADII */
-	--button-radius: 0.7rem;
-	/* SIZES */
-	--max-width: 380px; 
-	--max-height: 420px;
+  /* RADII */
+  --button-radius: 0.7rem;
+  /* SIZES */
+  --max-width: 380px;
+  --max-height: 420px;
 
-	font-size: 16px;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body {
@@ -148,101 +149,101 @@ body {
 }
 
 .form__title {
-	font-weight: 300;
-	margin: 0;
-	margin-bottom: 1.25rem;
+  font-weight: 300;
+  margin: 0;
+  margin-bottom: 1.25rem;
 }
 
 .link {
-	color: #333;
-	font-size: 0.9rem;
-	margin: 1.5rem 0;
-	text-decoration: none;
+  color: #333;
+  font-size: 0.9rem;
+  margin: 1.5rem 0;
+  text-decoration: none;
 }
 
 .box-login-tab {
-	width: 50%;
-	height: 40px;
-	background: #D4CFC9;
-	position: absolute;
-	top: -28px; 
-	left: 50;
-	z-index: 1;
-	border-radius: 6px 6px 0 0;
-	transform: perspective(5px) rotateX(0.93deg) translateZ(-1px);
-	transform-origin: 0 0;
-	backface-visibility: hidden;
-	box-shadow: 15px -10px 0px rgba(0,0,0,0.32);
+  width: 50%;
+  height: 40px;
+  background: #d4cfc9;
+  position: absolute;
+  top: -28px;
+  left: 50;
+  z-index: 1;
+  border-radius: 6px 6px 0 0;
+  transform: perspective(5px) rotateX(0.93deg) translateZ(-1px);
+  transform-origin: 0 0;
+  backface-visibility: hidden;
+  box-shadow: 15px -10px 0px rgba(0, 0, 0, 0.32);
 }
 
 .container {
-	position: relative;
-	border-radius: var(--button-radius);
-	height: var(--max-height);
-	max-width: var(--max-width);
-	width: 100%; 
-	display: flex;
-	justify-content: center;
+  position: relative;
+  border-radius: var(--button-radius);
+  height: var(--max-height);
+  max-width: var(--max-width);
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .container--signin {
-	width: 100%;
-	z-index: 2;
-	position: relative;
+  width: 100%;
+  z-index: 2;
+  position: relative;
 }
 
 .btn {
-	background-color: #2D3A16;
-	background-image: linear-gradient(90deg, #2D3A16 0%, #536C2E 74%);
-	border-radius: 20px;
-	border: 1px solid #2D3A16;
-	color: #e9e9e9;;
-	cursor: pointer;
-	font-size: 0.8rem;
-	font-weight: bold;
-	letter-spacing: 0.1rem;
-	padding: 15px 50px;
-	text-transform: uppercase;
-	transition: transform 80ms ease-in;
+  background-color: #2d3a16;
+  background-image: linear-gradient(90deg, #8bb740 0%, #6c8f38 74%);
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  color: #e9e9e9;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  padding: 15px 50px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
 }
 
 .form > .btn {
-	margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .btn:active {
-	transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 .btn:focus {
-	outline: none;
+  outline: none;
 }
 
 .form {
-	background-color: #D4CFC9;
-	border-radius: var(--button-radius);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding-top: 50px;
-    padding-right:100px;
-    padding-left:100px;
-    padding-bottom:60px;
-	height: 100%;
-	text-align: center;
-	box-shadow: 0 0.10rem 1.7rem rgba(0, 0, 0, 0.25),
-		0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
+  background-color: #d4cfc9;
+  border-radius: var(--button-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-bottom: 60px;
+  height: 100%;
+  text-align: center;
+  box-shadow: 0 0.1rem 1.7rem rgba(0, 0, 0, 0.25),
+    0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
 }
 
 .input {
-	background-color: #fff;
-	border: none;
-	padding: 0.9rem 0.9rem;
-    padding-left:0px;
-	margin: .5rem 0;
-	width: 177%;
-    box-sizing:border-box;
-    text-indent: 10px;
-    
+  background-color: #fff;
+  border: none;
+  padding: 0.9rem 0.9rem;
+  padding-left: 0px;
+  margin: 0.5rem 0;
+  width: 177%;
+  box-sizing: border-box;
+  text-indent: 10px;
 }
