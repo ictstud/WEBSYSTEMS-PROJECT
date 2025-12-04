@@ -28,7 +28,7 @@
 <nav class="navbar">
   <div class="navbar-left">
     <img src="Images/bsu_logo.png" alt="Logo" class="logo"/>
-    <a href="homepage.php"><img src="Images/filestacker_logo.png" alt="Logo" class="logo"/></a>
+    <a href="homepage.php" id="redirectLinkLogo"><img src="Images/filestacker_logo.png" alt="Logo" class="logo"/></a>
     <span class="site-title">FileStacker | A Digital Archive</span>
   </div>
   <div class="navbar-right">

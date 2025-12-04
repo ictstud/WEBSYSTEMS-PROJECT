@@ -77,21 +77,21 @@ if (form) {
 
 // --- Login error handling and rediretion (if on login page) ---
 const loginForm = document.querySelector("#loginForm");
-const loginUsername = document.querySelector("#email");
+const loginEmail = document.querySelector("input[type='email']");
 const loginPassword = document.querySelector("#password");
 const loginErrors = document.querySelector("#loginErrors");
 
-const doLogin = (username, password) =>
-  apiPost("../Backend/login.php", { username, password });
+const doLogin = (email, password) =>
+  apiPost("../Backend/login.php", { email, password });
 
 if (loginForm) {
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const username = loginUsername.value.trim();
+    const email = loginEmail.value.trim();
     const password = loginPassword.value;
     loginErrors.innerHTML = "";
 
-    const resp = await doLogin(username, password);
+    const resp = await doLogin(email, password);
     if (!resp.ok) {
       loginErrors.innerHTML = `<article>${
         resp.error || "Login failed"

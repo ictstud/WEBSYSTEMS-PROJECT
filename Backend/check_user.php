@@ -102,7 +102,7 @@ if($action === 'create'){
     }
     $insert->bind_param('sss', $username, $email, $password);
     if($insert->execute()){
-        json_response(['ok'=>true, 'message'=>'User created', 'redirect_to' => '../Frontend/login.php']);
+        json_response(['ok'=>true, 'message'=>'User created', 'redirect_to' => '../Frontend/login.html']);
     } else {
         json_response(['ok'=>false, 'error'=>'Insert failed: '.$insert->error]);
     }
