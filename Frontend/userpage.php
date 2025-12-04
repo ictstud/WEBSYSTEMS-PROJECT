@@ -8,7 +8,7 @@
         $editData = $controller->update_take_data($editId);
     }
 ?>
-
+<!------------- HOMEPAGE SPECIFICALLY FOR USERS ------------->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>FileStacker | A Digital Archive</title>
 </head>
-    <!-- HOMEPAGE SPECIFICALLY FOR USERS -->
 <body>
     <!-- NAVIGATION BAR -->
     <nav class="navbar">

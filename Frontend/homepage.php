@@ -1,17 +1,15 @@
 <?php 
     include "../BackEnd/Controller.php";
 
-    // $connect = new Controller();
-    // $connect->connection(); - gpt said to remove this since were already connected to the constructor
-
-    // If visiting with editID, fetch the record to show inline update form - COPILOT
+    // If visiting with editID, fetch the record to show inline update form
     $editData = null;
-    $controller = new Controller();
-    if (!empty($_GET['editID'])) {
+    $controller = new Controller(); // create controller instance
+    if (!empty($_GET['editID'])) { 
         $editId = (int) $_GET['editID'];
         $editData = $controller->update_take_data($editId);
     }
 ?>
+<!------------ ADMIN PAGE ---------------->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,15 +23,12 @@
 </head>
 <body>
     <!-- A website for the registrar/administration where signing in links all pre-existing files related to them -->
-     <!-- ADMIN PAGE -->
-    <!-- TO ADD: -->
-    <!-- Make search bar functionable -->
 
 <!-- NAVIGATION BAR -->
 <nav class="navbar">
   <div class="navbar-left">
     <img src="Images/bsu_logo.png" alt="Logo" class="logo"/>
-    <img src="Images/filestacker_logo.png" alt="Logo" class="logo"/>
+    <a href="homepage.php"><img src="Images/filestacker_logo.png" alt="Logo" class="logo"/></a>
     <span class="site-title">FileStacker | A Digital Archive</span>
   </div>
   <div class="navbar-right">
@@ -76,7 +71,6 @@
         </script>
      </header>
 
-     
      <!-- FORM THAT SHOWS WHEN U CLICK SUBMIT A FILE -->
      <section class="submit-file" id="submitFile" style="display: none;">
         <form action="../BackEnd/Controller.php?method_finder=create"  method="post" id="submitFileForm">
@@ -149,7 +143,6 @@
         </script>
     <?php endif; ?>
 
-
     <!-- SEARCH BAR (CHANGES) -->
     <section id="searchBar" class="searchBar" style="display: none;">
         <form action="homepage.php" method="get">
@@ -170,9 +163,7 @@
         </form>
     </section>
 
-    
 </div>
-
 
 <!-- TABLE DISPLAYING RECORDS -->
     <table>
@@ -189,7 +180,6 @@
         <tbody id="files-table">
             <?php
             // SORTING AND SEARCHING FUNCTION (CHANGES MADE)
-            
             // FOR SORTING
             $controller = new Controller();
 
