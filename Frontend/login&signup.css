@@ -138,7 +138,7 @@ a .link:hover {
 
 body {
   align-items: center;
-  background-color: #38491b;
+  background-color: #fada54;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -194,9 +194,10 @@ body {
 
 .btn {
   background-color: #2d3a16;
-  background-image: linear-gradient(90deg, #2d3a16 0%, #536c2e 74%);
+  background-image: linear-gradient(90deg, #8bb740 0%, #6c8f38 74%);
   border-radius: 20px;
-  border: 1px solid #2d3a16;
+  border: none;
+  outline: none;
   color: #e9e9e9;
   cursor: pointer;
   font-size: 0.8rem;
