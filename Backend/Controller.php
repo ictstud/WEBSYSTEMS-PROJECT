@@ -181,6 +181,7 @@ class Controller {
         }
     }
 
+    
     // SORT FOR TABLE
     public function readall_sorted_by_date() {
         $sql = "SELECT * FROM files_table ORDER BY STR_TO_DATE(date_issued, '%m/%d/%Y') ASC"; 
@@ -192,6 +193,28 @@ class Controller {
         return $result->fetch_all(MYSQLI_ASSOC);
         // takes what query returns and returns all rows as array
     }
+
+
+    // FOR SEARCH FUNCTION
+    public function search($category, $keyword) {
+        
+        $allowed = ['ID', 'last_name', 'first_name', 'file_name', 'date_issued'];
+
+        if (!in_array($category, $allowed)) {
+            return [];
+        }
+
+        $keyword = "%" . $keyword . "%";
+
+        $sql = "SELECT * FROM files_table WHERE $category LIKE ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bind_param("s", $keyword);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 
     // CONVERTS DATE (STRING) INTO MM/DD/YYYY
     private function convertToMMDDYYYY($dateString) {

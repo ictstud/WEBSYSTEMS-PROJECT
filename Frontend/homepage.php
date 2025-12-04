@@ -149,14 +149,30 @@
         </script>
     <?php endif; ?>
 
-    <!-- SEARCH BAR -->
-    <section  id="searchBar" class="searchBar" style="display: none;">
-        <form action="files_table.sql" method="get">
-            <input type="text" name="query" placeholder="Search files..." >
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+
+    <!-- SEARCH BAR (CHANGES) -->
+    <section id="searchBar" class="searchBar" style="display: none;">
+        <form action="homepage.php" method="get">
+            <select name="category" required>
+                <option value="">Search by...</option>
+                <option value="ID">ID</option>
+                <option value="last_name">Last Name</option>
+                <option value="first_name">First Name</option>
+                <option value="file_name">File Name</option>
+                <option value="date_issued">Date Issued</option>
+            </select>
+
+            <input type="text" name="keyword" placeholder="Enter search keyword..." required>
+
+            <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i> Search
+            </button>
         </form>
     </section>
+
+    
 </div>
+
 
 <!-- TABLE DISPLAYING RECORDS -->
     <table>
@@ -172,17 +188,25 @@
         </thead>
         <tbody id="files-table">
             <?php
+            // SORTING AND SEARCHING FUNCTION (CHANGES MADE)
+            
             // FOR SORTING
             $controller = new Controller();
 
-                if (isset($_GET['sort']) && $_GET['sort'] == 'date') {
-                // checks if the link has a SORT value
-                $users = $controller->readall_sorted_by_date();
-                } 
-                else {
-                $users = $controller->readall();
+                // SEARCH
+                if (isset($_GET['category']) && isset($_GET['keyword']) && $_GET['keyword'] !== "") {
+                    $category = $_GET['category'];
+                    $keyword = $_GET['keyword'];
+                    $users = $controller->search($category, $keyword);
                 }
-                // this is for when the user wants to sort the data (by date) or not
+                // SORT
+                elseif (isset($_GET['sort']) && $_GET['sort'] == 'date') {
+                    $users = $controller->readall_sorted_by_date();
+                }
+                // DEFAULT
+                else {
+                    $users = $controller->readall();
+                }
 
                 foreach($users as $user):
                 // loops through each result/row in the table   
