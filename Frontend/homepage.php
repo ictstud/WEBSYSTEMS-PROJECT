@@ -51,6 +51,7 @@
             <i class="fa-solid fa-magnifying-glass"></i>Search a file
         </button>
         
+        
         <!-- FOR Sort BUTTON - Toggle between sorted and unsorted -->
         <?php
             $isSorted = isset($_GET['sort']) && $_GET['sort'] == 'date';
@@ -145,9 +146,13 @@
         </script>
     <?php endif; ?>
 
+
     <!-- SEARCH BAR (CHANGES) -->
+
+    <!-- This section/part displays the Search Bar in the Homepage -->
     <section id="searchBar" class="searchBar" style="display: none;">
         <form action="homepage.php" method="get">
+            <!-- This part is for the user to choose a category they can search the file from using a keyword -->
             <select name="category" required class="category-select">
                 <option value="">Search by...</option>
                 <option value="ID">ID</option>
@@ -159,11 +164,13 @@
 
             <input type="text" name="keyword" placeholder="Enter search keyword..." required>
 
+            <!-- submits the search input for execution -->
             <button type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i> Search
             </button>
         </form>
     </section>
+
 
 </div>
 
@@ -184,8 +191,9 @@
             // SORTING AND SEARCHING FUNCTION (CHANGES MADE)
             // FOR SORTING
             $controller = new Controller();
-
+                //
                 // SEARCH
+                // Gets the category and keyword for searching in the database.
                 if (isset($_GET['category']) && isset($_GET['keyword']) && $_GET['keyword'] !== "") {
                     $category = $_GET['category'];
                     $keyword = $_GET['keyword'];

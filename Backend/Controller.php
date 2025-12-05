@@ -172,6 +172,8 @@ class Controller {
 
 
     // FOR SEARCH FUNCTION
+
+    // When the "category" is chosen and the "keyword" is entered, it will search the database for that specified search.
     public function search($category, $keyword) {
         
         $allowed = ['ID', 'last_name', 'first_name', 'file_name', 'date_issued'];
@@ -181,7 +183,7 @@ class Controller {
         }
 
         $keyword = "%" . $keyword . "%";
-
+        
         $sql = "SELECT * FROM files_table WHERE $category LIKE ?";
         $stmt = $this->connection->prepare($sql);
         $stmt->bind_param("s", $keyword);
